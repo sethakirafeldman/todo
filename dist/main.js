@@ -1,0 +1,1 @@
+(()=>{"use strict";let e=((e,t)=>{let i=document.createElement("div");return document.parent.appendChild(i),i})();console.log(e.type);const t=("first list item","this is first",console.log("testtest"),{title:"first list item",description:"this is first",dueDate:undefined,priority:undefined,notes:undefined,checklist:undefined});console.log(t.title)})();
