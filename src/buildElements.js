@@ -1,14 +1,19 @@
-const domFactory = (type, parent/*attributes, child*/) => {
-    let element = document.createElement(type);
-    let parent = document.getElementsByName(parent);
-    document.parent.append(element);
-    return element ;
+const elFactory = (type, parent/*attributes, child*/) => {
+    return {
+        type: type,
+        parent: parent
+    };
+
+    // let element = document.createElement(type);
+    // let parent = document.getElementsByName(parent);
+    // document.body.append(element);
+    // return element ;
 };
 
-let firstEl = domFactory("div", "body");
+let firstEl = elFactory('div', 'body');
 console.log(firstEl.type);
 
 
 
 
-export {domFactory}
+export {elFactory}
