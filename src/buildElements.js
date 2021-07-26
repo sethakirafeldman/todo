@@ -1,32 +1,38 @@
-const elFactory = (type, parent, title/*attributes, child*/) => {
+const elFactory = (type, parent, id, text/*attributes, child*/) => {
     const build = () => {
         let el = document.createElement(type);
         let appendAble = document.getElementById(parent);
-        el.id = title;
-        el.innerText = "testesttest";
+        el.id = id;
+        el.innerText = text;
         appendAble.append(el);
-        console.log(type, parent + "awesae");
     };
 
     return {
         type,
         parent,
-        title,
+        id,
         build
     }
 
     };
 
-    // let element = document.createElement(type);
-    // let parent = document.getElementsByName(parent);
-    // document.body.append(element);
-    // return element ;
+const textContent = {
+    main: "" ,
+    title: "To Doer-er",
+    subtitle: "The To Do list for only the doiest!"
 
-const firstEl = elFactory('div', 'main', "div1");
-const secondEl = elFactory("h2", 'div1', "test2" );
+};
 
-firstEl.build();
-secondEl.build();
+//type, parent, id, text .
+
+const containerGen = elFactory('div', 'main', "container",textContent.main);
+const titleGen = elFactory('div', 'container', "title",textContent.title);
+const subGen = elFactory("p", 'title', "subtitle", textContent.subtitle);
+
+
+containerGen.build();
+titleGen.build();
+subGen.build();
 
 
 export {elFactory}
