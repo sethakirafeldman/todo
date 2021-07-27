@@ -4,7 +4,7 @@ const elFactory = (type, parent, id, text/*attributes, child*/) => {
         let appendAble = document.getElementById(parent);
         el.id = id;
         el.innerText = text;
-        appendAble.append(el);
+        appendAble.appendChild(el);
     };
 
     return {
@@ -17,22 +17,27 @@ const elFactory = (type, parent, id, text/*attributes, child*/) => {
     };
 
 const textContent = {
-    main: "" ,
+    header: "" ,
     title: "To Doer-er",
-    subtitle: "The To Do list for only the doiest!"
-
+    subtitle: "The To Do list for only the doiest!",
+    task: "Add Task",
+    container:""
 };
 
 //type, parent, id, text .
 
-const containerGen = elFactory('div', 'main', "container",textContent.main);
-const titleGen = elFactory('div', 'container', "title",textContent.title);
+const headerGen = elFactory('div', 'main', "header",textContent.header);
+const titleGen = elFactory('div', 'header', "title",textContent.title);
 const subGen = elFactory("p", 'title', "subtitle", textContent.subtitle);
+const containerGen = elFactory("div", 'main', 'container', "");
+const addTask = elFactory("button", "container", "addTask", textContent.task);
 
-
-containerGen.build();
+headerGen.build();
 titleGen.build();
 subGen.build();
+containerGen.build();
+addTask.build();
+
 
 
 export {elFactory}

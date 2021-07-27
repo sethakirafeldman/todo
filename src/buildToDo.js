@@ -1,5 +1,4 @@
 const toDoFactory = (title, description, dueDate, priority, notes, checklist) => {
-    console.log("testtest");
         return {
             title: title,
             description: description,
