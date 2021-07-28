@@ -1,5 +1,6 @@
 #header {
     text-align: center;
+    border-style: ridge;
 
 }
 
@@ -10,5 +11,16 @@ body {
 
 #container {
     text-align: center;
+
+}
+
+#taskForm {
+    text-align: center;
+    box-sizing: border-box;
+    border-style: none;
+}
+
+#taskSection {
+    width: fit-content;
 
 }
