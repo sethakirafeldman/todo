@@ -1,35 +1,32 @@
+import { submitData } from "./submitData";
+
 const buildTaskForm = () => {
-    let form = document.createElement("form");
-    form.id ="taskForm";
-    // form.setAttribute("method", "post");
-    // form.setAttribute("action", "submitData.js");
-    // form.setAttribute("onsubmit", "display()");
+    document.getElementById("addTask").classList.add("hide");
+
     let container = document.getElementById("container");
-    container.appendChild(form);
     
     let taskInput = document.createElement("input");
+    taskInput.id = "taskInput";
     taskInput.setAttribute("type", "text");
     taskInput.setAttribute("task", "Task Name")
     taskInput.setAttribute("placeholder", "Task Name");
-    form.appendChild(taskInput);
+    taskInput.setAttribute("type", "value");
+    container.appendChild(taskInput);
 
     let taskDescription = document.createElement("input");
+    taskDescription.id = "taskDescription";
     taskDescription.setAttribute("type","text");
     taskDescription.setAttribute("task","Task Description");
     taskDescription.setAttribute("placeholder", "Description");
-    form.appendChild(taskDescription);
+    taskDescription.setAttribute("type","value");
+    container.appendChild(taskDescription);
 
     let submit = document.createElement("input");
     submit.setAttribute("type","submit");
     submit.setAttribute("value", "Submit");
-    submit.setAttribute("onsubmit", "display()");
-    form.appendChild(submit);
+    submit.addEventListener("click", submitData);
+    container.appendChild(submit);    
 };
-
-const display = () => {
-    console.log("testdisplay");
-
-}
 
 const taskEvent = document.getElementById("addTask")
 taskEvent.addEventListener("click", buildTaskForm);

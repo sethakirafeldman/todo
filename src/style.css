@@ -24,3 +24,8 @@ body {
     width: fit-content;
 
 }
+
+.hide {
+    display: none;
+
+}
