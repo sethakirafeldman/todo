@@ -31,7 +31,7 @@ const titleGen = elFactory('div', 'header', "title",textContent.title);
 const subGen = elFactory("p", 'title', "subtitle", textContent.subtitle);
 const containerGen = elFactory("div", 'main', 'container', "");
 const addTask = elFactory("button", "container", "addTask", textContent.task);
-const taskSection = elFactory("div", "main", "taskSection","");
+const taskSection = elFactory("div", "container", "taskSection","");
 
 headerGen.build();
 titleGen.build();
