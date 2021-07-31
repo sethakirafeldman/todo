@@ -10,8 +10,8 @@ const toDoFactory = (title, description, dueDate, priority, notes, checklist) =>
 
 };
 
-const testCase = toDoFactory("first list item", "this is first");
-console.log(testCase.title)
+// const testCase = toDoFactory("first list item", "this is first");
+// console.log(testCase.title)
 
 
 

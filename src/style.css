@@ -39,3 +39,17 @@ body {
 .hide {
     display: none;
 }
+
+.checkBox {
+    /* opacity: 0; */
+}
+
+.custom-checkbox {
+    position: absolute;
+    top: 0px;
+    background-color: transparent;
+    border-radius: 5px;
+    border: 2px solid #FFFFFF;
+
+
+}
