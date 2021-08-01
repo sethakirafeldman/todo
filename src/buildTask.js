@@ -38,7 +38,7 @@ const buildTaskForm = () => {
     inputContainer.appendChild(submit);    
 
 };
-
+// adds function to Add Task button
 const taskEvent = document.getElementById("addTask")
 taskEvent.addEventListener("click", buildTaskForm);
 

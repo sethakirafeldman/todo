@@ -1,13 +1,15 @@
-const toDoFactory = (title, description, dueDate, priority, notes, checklist) => {
+const toDoFactory = (title, description, entry, dueDate, priority, notes, checklist) => {
         return {
             title: title,
             description: description,
+            entry: entry,
             dueDate: dueDate,
             priority: priority,
             notes: notes,
             checklist: checklist,
-    };
 
+            // taskEntries.push(entries)
+    };
 };
 
 // const testCase = toDoFactory("first list item", "this is first");

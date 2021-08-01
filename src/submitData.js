@@ -1,4 +1,7 @@
 import { toDoFactory } from "./buildToDo";
+import { checkBox } from "./checkBox.js";
+
+let taskNumber = 1;
 
 const submitData = () => {
 
@@ -6,7 +9,8 @@ const submitData = () => {
     let taskSec = document.getElementById("taskSection");
     let taskInp = document.getElementById("taskInput").value;
     let taskDesc = document.getElementById("taskDescription").value;
-    console.log(taskInp,taskDesc);
+    // let taskEntry = 1++;
+    // console.log(taskInp,taskDesc);
 
     // passes user input into factory function to create obj.
     let taskEntry = toDoFactory(taskInp,taskDesc);
@@ -17,8 +21,9 @@ const submitData = () => {
     // document.getElementById("inputContainer").classList.add("hide");
     let span = document.createElement("span");
     let taskEl = document.createElement("div");
-    taskEl.innerHTML = `<input type ="checkbox" value = ${taskEntry.title} class = "checkBox"> ${taskEntry.title} ${taskEntry.description}`;
-
+    let taskId = "task" +taskNumber++;                                                
+    taskEl.innerHTML = `<input type ="checkbox" id = ${taskId} value = ${taskEntry.title} class = "checkBox"> ${taskEntry.title} ${taskEntry.description}`;
+    taskEl.addEventListener("click", checkBox, taskId);
     taskEl.id = taskEntry.title;
     // span.setAttribute("class","custom-checkbox")
     // span.append(taskEl)
@@ -27,6 +32,9 @@ const submitData = () => {
     //unhides Add Task Button and delete inputContainer
     document.getElementById("addTask").classList.remove("hide");
     document.getElementById("inputContainer").remove();
+
+    // adds event listener to checkbox
+    // document.getElementById(taskId).addEventListener("click", checkBox);
 
     return taskEntry;
 
