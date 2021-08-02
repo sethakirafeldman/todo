@@ -1,14 +1,18 @@
-let taskIterator = task + 1++;
 
 const checkBox = () => {
-    // need a way to reliably grab id task1 /task 2 etc. loop?
-    let getCheck = document.getElementById(taskIterator);
-    if (getCheck.checked ===true) {
-        console.log("true");
-    }
+    let taskList = document.querySelectorAll(".checkBox");
+    for (let i=0; i < taskList.length; i++) {
+    
+        // need a way to reliably grab id task1 /task 2 etc. loop?
+        let getCheck = taskList[i];
 
-    else if (getCheck === false ) {
-        console.log("false");
+        if (getCheck.checked ===true) {
+            console.log("true" +getCheck.id);
+        }
+
+        else if (getCheck.checked === false ) {
+            console.log("false"+getCheck.id);
+        };
     };
 };
     // console.log(checkStatus + "test");

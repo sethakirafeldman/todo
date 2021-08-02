@@ -1,4 +1,6 @@
-const toDoFactory = (title, description, entry, dueDate, priority, notes, checklist) => {
+const toDoFactory = (title, description, entry, dueDate, priority, notes, status) => {
+
+    console.log(taskEntry.title);
         return {
             title: title,
             description: description,
@@ -6,7 +8,7 @@ const toDoFactory = (title, description, entry, dueDate, priority, notes, checkl
             dueDate: dueDate,
             priority: priority,
             notes: notes,
-            checklist: checklist,
+            status: status
 
             // taskEntries.push(entries)
     };
