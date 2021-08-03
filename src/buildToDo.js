@@ -1,6 +1,5 @@
 const toDoFactory = (title, description, entry, dueDate, priority, notes, status) => {
 
-    console.log(taskEntry.title);
         return {
             title: title,
             description: description,
