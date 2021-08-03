@@ -5,13 +5,16 @@ const checkBox = () => {
     
         // need a way to reliably grab id task1 /task 2 etc. loop?
         let getCheck = taskList[i];
+        let setCheck = window[getCheck.id];
 
         if (getCheck.checked ===true) {
-            console.log("true" +getCheck.id);
+            setCheck.status = true;
+            console.log(setCheck.title+setCheck.status);
         }
 
         else if (getCheck.checked === false ) {
-            console.log("false"+getCheck.id);
+            setCheck.status = false;
+            console.log(setCheck.title +setCheck.status);
         };
     };
 };
