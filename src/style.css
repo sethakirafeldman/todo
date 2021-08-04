@@ -30,26 +30,40 @@ body {
 }
 
 #taskSection {
-    width: fit-content;
-    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 50%;
     padding: 2%;
-    /* border-style: ridge; */
+}
+
+.taskItem {
+    display: inline-flex;
+    text-align:left;
+    font-size: large;
+    width: 80%;
+}
+
+.checkBox {
+    display: inline-block;
+    padding: 1em;
+    height: 25px;
+    width: 25px;
+
+}
+
+.taskTitle {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: x-large;
+}
+
+.taskContent {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: large;
 }
 
 .hide {
     display: none;
 }
 
-.checkBox {
-    /* opacity: 0; */
-}
 
-.custom-checkbox {
-    position: absolute;
-    top: 0px;
-    background-color: transparent;
-    border-radius: 5px;
-    border: 2px solid #FFFFFF;
-
-
-}

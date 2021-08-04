@@ -9,12 +9,10 @@ const checkBox = () => {
 
         if (getCheck.checked ===true) {
             setCheck.status = true;
-            console.log(setCheck.title+setCheck.status);
         }
 
         else if (getCheck.checked === false ) {
             setCheck.status = false;
-            console.log(setCheck.title +setCheck.status);
         };
     };
 };
