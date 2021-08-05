@@ -41,6 +41,7 @@ body {
     display: inline-flex;
     text-align:left;
     font-size: large;
+    height: fit-content;
     width: 80%;
 }
 
@@ -53,6 +54,8 @@ body {
 }
 
 .taskTitle {
+    display: inline;
+    flex-direction: column;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: x-large;
 }
@@ -60,6 +63,8 @@ body {
 .taskContent {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: large;
+    flex-wrap: wrap;
+    
 }
 
 .hide {
