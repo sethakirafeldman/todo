@@ -15,7 +15,8 @@ const buildTaskForm = () => {
     // create inputContainer
     let inputContainer = document.createElement("div");
     inputContainer.id = "inputContainer";
-    container.appendChild(inputContainer);
+    document.getElementById("taskSection").before(inputContainer);
+    // container.appendChild(inputContainer);
     
     //create taskName input
     const taskInput = document.createElement("input");
@@ -25,7 +26,7 @@ const buildTaskForm = () => {
         "task": "Task Name",
         "placeholder": "Task Name",
         "type": "value",
-        "size": "10"
+        // "size": "10"
     });
     inputContainer.appendChild(taskInput);
     
@@ -37,7 +38,7 @@ const buildTaskForm = () => {
         "task": "Task Description",
         "placeholder": "Description",
         "type": "value",
-        "size": "50"
+        // "size": "30"
     });
 
     inputContainer.appendChild(taskDescription);

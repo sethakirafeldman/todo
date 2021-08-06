@@ -13,13 +13,4 @@ const toDoFactory = (title, description, entry, dueDate, priority, notes, status
     };
 };
 
-// const testCase = toDoFactory("first list item", "this is first");
-// console.log(testCase.title)
-
-
-
-//https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript/lessons/factory-functions-and-the-module-pattern
-
-
-
 export { toDoFactory }

@@ -21,12 +21,39 @@ body {
 
 #inputContainer {
     align-content: center;
+    font-size: larger;
+    justify-content: center;
+    text-align: center;
+    width: 60%;
+}
+
+#submitBtn {
+    width: 100%;
+    font-size: large;
+    text-align: center;
+    justify-content: center;
+    background-color: green;
+    color: whitesmoke;
+    padding: 2%;
+}
+
+#addTask {
+width: 100%;
+font-size: large;
+text-align: center;
+justify-content: center;
+background-color: green;
+color: whitesmoke;
+padding: 1%;
 }
 
 #taskInput, #taskDescription {
     display: flex;
-    padding: 2%;
-
+    width: 100%;
+    font-size: large;
+    border: none;
+    padding-bottom: 2%; 
+    padding-top: 2%;   
 }
 
 #taskSection {
