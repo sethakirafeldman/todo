@@ -8,6 +8,12 @@ body {
 
     background-color: aliceblue;
 }
+#title {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: larger;
+    font-weight: bold;
+
+}
 
 #container {
     display: flex;
@@ -54,6 +60,11 @@ padding: 1%;
     border: none;
     padding-bottom: 2%; 
     padding-top: 2%;   
+}
+
+#dateSelect {
+    font-size: larger;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 #taskSection {

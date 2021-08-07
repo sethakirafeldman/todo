@@ -26,7 +26,7 @@ const buildTaskForm = () => {
         "task": "Task Name",
         "placeholder": "Task Name",
         "type": "value",
-        // "size": "10"
+        "maxlength": "20"
     });
     inputContainer.appendChild(taskInput);
     
@@ -38,11 +38,26 @@ const buildTaskForm = () => {
         "task": "Task Description",
         "placeholder": "Description",
         "type": "value",
-        // "size": "30"
+        "maxlength": "100"
     });
-
     inputContainer.appendChild(taskDescription);
     
+
+    //create date input label.
+    const dateLabel = document.createElement("label");
+    dateLabel.htmlFor = "dateSelect";
+    dateLabel.innerText ="Due Date: ";
+
+    //create date input
+    const dateSelect = document.createElement("input");
+    attributeSetter(dateSelect, {
+        "type": "date",
+        "id": "dateSelect",
+        "name": "Due Date",
+    });
+    inputContainer.appendChild(dateLabel);
+    inputContainer.appendChild(dateSelect);
+
     // create submit button
     const submit = document.createElement("input");
     attributeSetter(submit, {
