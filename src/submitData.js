@@ -6,21 +6,21 @@ let taskNumber = 1;
 const submitData = () => {
 
     // grab user input.
-    let taskSec = document.getElementById("taskSection");
-    let taskInp = document.getElementById("taskInput").value;
-    let taskDesc = document.getElementById("taskDescription").value;
-    let taskTitle = document.createElement("div");
-    let taskContent = document.createElement("div");
+    const  taskSec = document.getElementById("taskSection");
+    const taskInp = document.getElementById("taskInput").value;
+    const taskDesc = document.getElementById("taskDescription").value;
+    const dateInp = document.getElementById("dateSelect").value;
 
-    // passes user input into factory function to create obj.
-    
     // creates unique object with # appended to taskEntry_ 
-    let taskEntry = window['task_'+ taskNumber] = toDoFactory(taskInp, taskDesc, taskNumber);
+    //(title, description, entry, dueDate, priority, notes, status) 
 
-    // console.log(taskEntry+ "this is: "+ taskNumber);
-  
+    let taskEntry = window['task_'+ taskNumber] = toDoFactory(taskInp, taskDesc, taskNumber, dateInp);
+    
+    const taskTitle = document.createElement("div");
+    const taskContent = document.createElement("div");
+    const taskDue = document.createElement("div");
+
     //hides user input section and adds obj to taskSection in DOM.  
-
     let taskEl = document.createElement("div");
     let taskId = "task_" + taskNumber++;                                                
     taskEl.innerHTML = `<input type ="checkbox" id = ${taskId} value = ${taskEntry.title} class = "checkBox">`;
@@ -28,15 +28,21 @@ const submitData = () => {
     taskEl.id = taskEntry.title;
     taskEl.classList.add("taskItem");
 
-    //add task info to title and content
+    //title info
     taskTitle.innerText = `${taskEntry.title}`;
     taskTitle.classList.add("taskTitle");
+    //description
     taskContent.innerText = `${taskEntry.description}`;
     taskContent.classList.add("taskContent");
+    //due date
+    taskDue.innerText=`${taskEntry.dueDate}`;
+    taskDue.classList.add("taskDueDate");
+  
 
     taskSec.append(taskEl); 
     taskEl.append(taskTitle);
     taskTitle.append(taskContent);
+    taskContent.append(taskDue);
 
     //unhides Add Task Button and delete inputContainer
     document.getElementById("addTask").classList.remove("hide");
