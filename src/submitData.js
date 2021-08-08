@@ -14,8 +14,7 @@ const submitData = () => {
     // creates unique object with # appended to taskEntry_ 
     //(title, description, entry, dueDate, priority, notes, status) 
 
-    let taskEntry = window['task_'+ taskNumber] = toDoFactory(taskInp, taskDesc, taskNumber, dateInp);
-    
+    let taskEntry = window['task_'+ taskNumber] = toDoFactory(taskInp, taskDesc, taskNumber, dateInp); 
     const taskTitle = document.createElement("div");
     const taskContent = document.createElement("div");
     const taskDue = document.createElement("div");

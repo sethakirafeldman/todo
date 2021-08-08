@@ -1,6 +1,5 @@
 #header {
     text-align: center;
-    border-style: ridge;
 
 }
 
@@ -65,6 +64,21 @@ padding: 1%;
 #dateSelect {
     font-size: larger;
     font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#hamburgerMenu {
+    width: fit-content;
+    margin: left;
+
+}
+
+.ham-bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: black;
+    margin: 5px auto;
+
 }
 
 #taskSection {

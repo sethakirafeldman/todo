@@ -1,3 +1,6 @@
+import { buildMenuButton } from "./buildMenuButton.js";
+import { buildSideBar } from "./buildSideBar.js";
+
 const elFactory = (type, parent, id, text/*attributes, child*/) => {
     const build = () => {
         let el = document.createElement(type);
@@ -32,6 +35,7 @@ const subGen = elFactory("p", 'title', "subtitle", textContent.subtitle);
 const containerGen = elFactory("div", 'main', 'container', "");
 const addTask = elFactory("button", "container", "addTask", textContent.task);
 const taskSection = elFactory("div", "container", "taskSection","");
+const sideBar = elFactory("div","container","sideBar","");
 
 headerGen.build();
 titleGen.build();
@@ -39,7 +43,11 @@ subGen.build();
 containerGen.build();
 addTask.build();
 taskSection.build();
+sideBar.build();
 
+//adds hamburger menu
+buildMenuButton();
+buildSideBar();
 
 
 export {elFactory}
