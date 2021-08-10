@@ -127,11 +127,10 @@ padding: 1%;
 }
 
 .hide {
-    display: none;
+    visibility: hidden;
 }
 
 .unhide {
-    display: block ;
-}
 
+}
 
