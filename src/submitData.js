@@ -6,7 +6,7 @@ let taskNumber = 1;
 const submitData = () => {
 
     // grab user input.
-    const  taskSec = document.getElementById("taskSection");
+    const taskSec = document.getElementById("taskSection");
     const taskInp = document.getElementById("taskInput").value;
     const taskDesc = document.getElementById("taskDescription").value;
     const dateInp = document.getElementById("dateSelect").value;
@@ -37,7 +37,6 @@ const submitData = () => {
     taskDue.innerText=`${taskEntry.dueDate}`;
     taskDue.classList.add("taskDueDate");
   
-
     taskSec.append(taskEl); 
     taskEl.append(taskTitle);
     taskTitle.append(taskContent);

@@ -1,25 +1,33 @@
+#main {
+    display: flex;
+    flex-direction: column;
+    background-color: aliceblue;   
+    justify-content: space-between;
+}
+
 #header {
+    justify-self: center;
     text-align: center;
-
-}
-
-body {
-
-    background-color: aliceblue;
-}
-#title {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: larger;
     font-weight: bold;
 
 }
 
-#container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 2%;
+#sideBar {
+    position: fixed;
+    flex-shrink: 0;
+    border: solid;
+    width: 150px;
+    height: 600px;
+    padding-top: 175px;
 }
+
+#container {
+    padding: 2%;
+    justify-self: center;
+} 
+
 #addTask {
     padding:1%;
 }
@@ -28,6 +36,7 @@ body {
     align-content: center;
     font-size: larger;
     justify-content: center;
+    align-items: center;
     text-align: center;
     width: 60%;
 }

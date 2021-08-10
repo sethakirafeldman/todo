@@ -1,7 +1,7 @@
 import { buildMenuButton } from "./buildMenuButton.js";
 import { buildSideBar } from "./buildSideBar.js";
 
-const elFactory = (type, parent, id, text/*attributes, child*/) => {
+const elFactory = (type, parent, id, text) => {
     const build = () => {
         let el = document.createElement(type);
         let appendAble = document.getElementById(parent);
@@ -30,20 +30,22 @@ const textContent = {
 //type, parent, id, text .
 
 const headerGen = elFactory('div', 'main', "header",textContent.header);
+const sideBar = elFactory("div","main","sideBar","");
 const titleGen = elFactory('div', 'header', "title",textContent.title);
 const subGen = elFactory("p", 'title', "subtitle", textContent.subtitle);
 const containerGen = elFactory("div", 'main', 'container', "");
 const addTask = elFactory("button", "container", "addTask", textContent.task);
 const taskSection = elFactory("div", "container", "taskSection","");
-const sideBar = elFactory("div","container","sideBar","");
 
+
+
+sideBar.build();
 headerGen.build();
 titleGen.build();
 subGen.build();
 containerGen.build();
 addTask.build();
 taskSection.build();
-sideBar.build();
 
 //adds hamburger menu
 buildMenuButton();

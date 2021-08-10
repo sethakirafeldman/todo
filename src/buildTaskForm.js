@@ -10,7 +10,7 @@ const buildTaskForm = () => {
     // hide Add Task button
     document.getElementById("addTask").classList.add("hide");
     
-    let container = document.getElementById("container");
+    // let container = document.getElementById("container");
 
     // create inputContainer
     let inputContainer = document.createElement("div");
