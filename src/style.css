@@ -1,5 +1,6 @@
 #main {
     display: flex;
+    position: relative;
     flex-direction: column;
     background-color: aliceblue;   
     justify-content: space-between;
@@ -15,28 +16,25 @@
 }
 
 #sideBar {
-    position: fixed;
-    flex-shrink: 0;
-    border: solid;
+    position: absolute;
+    top: 150px;
+    background-color: lightcoral;
     width: 150px;
-    height: 600px;
-    padding-top: 175px;
+    height: 100%;
 }
 
 #container {
     padding: 2%;
-    justify-self: center;
+    position: relative;
+    left: auto;
+    text-align: center;
+    justify-content: center;
 } 
 
-#addTask {
-    padding:1%;
-}
-
 #inputContainer {
-    align-content: center;
+    position: relative;
+    left: 150px;    
     font-size: larger;
-    justify-content: center;
-    align-items: center;
     text-align: center;
     width: 60%;
 }
@@ -52,7 +50,7 @@
 }
 
 #addTask {
-width: 100%;
+width: 40%;
 font-size: large;
 text-align: center;
 justify-content: center;
@@ -99,8 +97,8 @@ padding: 1%;
 }
 
 .taskItem {
-    display: inline-flex;
-    text-align:left;
+    position: relative;
+    text-align:center;
     font-size: large;
     height: fit-content;
     width: 80%;
@@ -130,6 +128,10 @@ padding: 1%;
 
 .hide {
     display: none;
+}
+
+.unhide {
+    display: block ;
 }
 
 

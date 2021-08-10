@@ -39,11 +39,11 @@ const taskSection = elFactory("div", "container", "taskSection","");
 
 
 
-sideBar.build();
 headerGen.build();
 titleGen.build();
 subGen.build();
 containerGen.build();
+sideBar.build();
 addTask.build();
 taskSection.build();
 

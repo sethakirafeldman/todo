@@ -1,8 +1,19 @@
 
 const menuExpand = ()=> {
-    alert("test");
-    document.getElementById("sideBar").classList.add(".unhide");
+    let sideBar = document.getElementById("sideBar");
+
+    if (sideBar.classList.contains('hide') ) {
+        sideBar.classList.add("unhide");
+        sideBar.classList.remove("hide");
+    }
+
+    else if (sideBar.classList.contains('unhide') ) {
+        sideBar.classList.add("hide");
+        sideBar.classList.remove("unhide");
+    }
+
 };
+
 
 const buildMenuButton = () => {
     let header = document.getElementById("header");
