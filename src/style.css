@@ -18,9 +18,9 @@
 #sideBar {
     position: absolute;
     top: 150px;
-    background-color: lightcoral;
-    width: 150px;
-    height: 100%;
+    background-color: grey;
+    width: 10rem;
+    height: 100vh;
 }
 
 #container {
@@ -127,10 +127,15 @@ padding: 1%;
 }
 
 .hide {
-    visibility: hidden;
+    transform: translateX(-200%);
+    position: absolute;
+    transition: transform .5s;
 }
 
-.unhide {
 
+.unhide {
+    transform: translateX(0%);
+    transition: transform .5s;
+    
 }
 
