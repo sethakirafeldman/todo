@@ -1,16 +1,17 @@
-const toDoFactory = (title, description, entry, dueDate, priority, notes, status) => {
+const toDoFactory = (title, description, entry, dueDate, project, notes, status) => {
 
         return {
             title: title,
             description: description,
             entry: entry,
             dueDate: dueDate,
-            priority: priority,
+            project: project,
             notes: notes,
             status: status
 
-            // taskEntries.push(entries)
     };
+
+    
 };
 
 export { toDoFactory }
