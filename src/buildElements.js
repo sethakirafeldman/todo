@@ -51,5 +51,4 @@ taskSection.build();
 buildMenuButton();
 buildSideBar();
 
-
 export {elFactory}

@@ -10,8 +10,6 @@ const buildTaskForm = () => {
     // hide Add Task button
     document.getElementById("addTask").classList.add("hide");
     
-    // let container = document.getElementById("container");
-
     // create inputContainer
     let inputContainer = document.createElement("div");
     inputContainer.id = "inputContainer";
@@ -42,6 +40,19 @@ const buildTaskForm = () => {
     });
     inputContainer.appendChild(taskDescription);
     
+    //create project input
+    const projectInput = document.createElement("input");
+    attributeSetter (projectInput, {
+        "type":"project",
+        "id": "projectInput",
+        "name": "Project Name",
+        "placeholder":"Project Name",
+        "type": "value",
+        "maxlength": "100",
+
+    });
+    inputContainer.appendChild(projectInput);
+
 
     //create date input label.
     const dateLabel = document.createElement("label");

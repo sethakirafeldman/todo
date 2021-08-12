@@ -16,11 +16,18 @@
 }
 
 #sideBar {
+    /* color: whitesmoke; */
     position: absolute;
     top: 150px;
-    background-color: grey;
+    background-color: rgb(173,216,230, .2);
     width: 10rem;
     height: 100vh;
+}
+
+#Project {
+    color: black;
+    opacity: 100%;
+
 }
 
 #container {
@@ -59,7 +66,7 @@ color: whitesmoke;
 padding: 1%;
 }
 
-#taskInput, #taskDescription {
+#taskInput, #taskDescription, #projectInput {
     display: flex;
     width: 100%;
     font-size: large;
@@ -127,13 +134,17 @@ padding: 1%;
 }
 
 .hide {
+    visibility: hidden;
+}
+
+.hide-bar {
     transform: translateX(-200%);
     position: absolute;
     transition: transform .5s;
 }
 
 
-.unhide {
+.unhide-bar {
     transform: translateX(0%);
     transition: transform .5s;
     

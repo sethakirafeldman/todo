@@ -2,6 +2,8 @@ import { toDoFactory } from "./buildToDo";
 import { checkBox } from "./checkBox.js";
 
 let taskNumber = 1;
+const taskEntries = [""];
+
 
 const submitData = () => {
 
@@ -9,14 +11,17 @@ const submitData = () => {
     const taskSec = document.getElementById("taskSection");
     const taskInp = document.getElementById("taskInput").value;
     const taskDesc = document.getElementById("taskDescription").value;
+    const projInp = document.getElementById("projectInput").value;
     const dateInp = document.getElementById("dateSelect").value;
+    
 
     // creates unique object with # appended to taskEntry_ 
     //(title, description, entry, dueDate, priority, notes, status) 
 
-    let taskEntry = window['task_'+ taskNumber] = toDoFactory(taskInp, taskDesc, taskNumber, dateInp); 
+    let taskEntry = window['task_'+ taskNumber] = toDoFactory(taskInp, taskDesc, taskNumber, dateInp, projInp); 
     const taskTitle = document.createElement("div");
     const taskContent = document.createElement("div");
+    const projectContent = document.createElement("div");
     const taskDue = document.createElement("div");
 
     //hides user input section and adds obj to taskSection in DOM.  
@@ -33,6 +38,8 @@ const submitData = () => {
     //description
     taskContent.innerText = `${taskEntry.description}`;
     taskContent.classList.add("taskContent");
+    //project
+    projectContent.innerText
     //due date
     taskDue.innerText=`${taskEntry.dueDate}`;
     taskDue.classList.add("taskDueDate");
