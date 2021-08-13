@@ -1,12 +1,1 @@
 node_modules/
-package-lock.json
-node_modules/webpack/package.json
-node_modules/webpack/types.d.ts
-node_modules/webpack/lib/NormalModule.js
-node_modules/webpack/lib/asset/AssetModulesPlugin.js
-node_modules/webpack/lib/hmr/HotModuleReplacement.runtime.js
-node_modules/webpack/lib/stats/DefaultStatsFactoryPlugin.js
-node_modules/webpack/lib/stats/DefaultStatsPresetPlugin.js
-node_modules/webpack/lib/stats/DefaultStatsPrinterPlugin.js
-node_modules/webpack/schemas/WebpackOptions.check.js
-node_modules/webpack/schemas/WebpackOptions.json
