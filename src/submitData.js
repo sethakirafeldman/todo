@@ -13,6 +13,8 @@ const submitData = () => {
     const taskDesc = document.getElementById("taskDescription").value;
     const projInp = document.getElementById("projectInput").value;
     const dateInp = document.getElementById("dateSelect").value;
+
+    taskSec.onchange = function(){console.log("testing onchangeevent")};
     
 
     // creates unique object with # appended to taskEntry_ 

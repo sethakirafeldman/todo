@@ -1,5 +1,6 @@
 // needs to loop through all projects and display.
-// side bar loads at first part of site, but needs to perpetually check to see if new project info exists. 
+// side bar loads at first part of site,
+// but needs to perpetually check to see if new project info exists. 
 //maybe eventlistener for changes/or clicks.  
 
 const checkProjects = ()=> {
