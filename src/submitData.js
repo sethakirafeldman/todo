@@ -1,9 +1,10 @@
 import { toDoFactory } from "./buildToDo";
 import { checkBox } from "./checkBox.js";
+import { checkProjects} from "./checkProjects.js";
 
 let taskNumber = 1;
-const taskEntries = [""];
 
+// this could be a constructor/factory.
 
 const submitData = () => {
 
@@ -14,17 +15,16 @@ const submitData = () => {
     const projInp = document.getElementById("projectInput").value;
     const dateInp = document.getElementById("dateSelect").value;
 
-    taskSec.onchange = function(){console.log("testing onchangeevent")};
-    
-
     // creates unique object with # appended to taskEntry_ 
-    //(title, description, entry, dueDate, priority, notes, status) 
+    //(title, description, entry, dueDate, priority, notes, status, checkProjects) 
 
     let taskEntry = window['task_'+ taskNumber] = toDoFactory(taskInp, taskDesc, taskNumber, dateInp, projInp); 
     const taskTitle = document.createElement("div");
     const taskContent = document.createElement("div");
     const projectContent = document.createElement("div");
     const taskDue = document.createElement("div");
+
+    checkProjects();
 
     //hides user input section and adds obj to taskSection in DOM.  
     let taskEl = document.createElement("div");
@@ -51,7 +51,7 @@ const submitData = () => {
     taskTitle.append(taskContent);
     taskContent.append(taskDue);
 
-    //unhides Add Task Button and delete inputContainer
+    //unhides Add Task Button and deletes inputContainer
     document.getElementById("addTask").classList.remove("hide");
     document.getElementById("inputContainer").remove();
 

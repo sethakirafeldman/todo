@@ -8,10 +8,10 @@ const toDoFactory = (title, description, entry, dueDate, project, notes, status)
             project: project,
             notes: notes,
             status: status
-
     };
 
     
 };
 
 export { toDoFactory }
+
