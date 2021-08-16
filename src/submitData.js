@@ -20,6 +20,20 @@ const submitData = () => {
 
     let taskEntry = window['task_'+ taskNumber] = toDoFactory(taskInp, taskDesc, taskNumber, dateInp, projInp); 
     
+    // if object already exists, add to tasks array, if not, create new object. IIFE
+    ( () =>  {
+         if (window[projInp] === undefined ) {
+            let project = window[projInp] = new Object({projectName: projInp});
+            project.tasks = [taskInp];
+         }
+         else {
+            let project = window[projInp];
+            project.tasks.push(taskInp); 
+            console.log("already exists");
+
+         }; 
+    })();
+
     const taskTitle = document.createElement("div");
     const taskContent = document.createElement("div");
     const projectContent = document.createElement("div");
