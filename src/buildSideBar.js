@@ -4,14 +4,6 @@
 //maybe eventlistener for changes/or clicks.  
 // or each time a new task obj is created or deleted.
 
-
-// const checkProjects = ()=> {
-//     for (let i =0; i<3; i++) {
-//         let task = "task_" +i;
-//         console.log(window[task]);
-//         };
-// };
-
 const buildSideBar = ()=>  {
 
     let sideBar = document.getElementById("sideBar");

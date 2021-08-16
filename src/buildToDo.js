@@ -1,3 +1,5 @@
+
+
 const toDoFactory = (title, description, entry, dueDate, project, notes, status) => {
 
         return {
@@ -9,8 +11,6 @@ const toDoFactory = (title, description, entry, dueDate, project, notes, status)
             notes: notes,
             status: status
     };
-
-    
 };
 
 export { toDoFactory }

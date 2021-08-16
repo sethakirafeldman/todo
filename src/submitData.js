@@ -3,13 +3,13 @@ import { checkBox } from "./checkBox.js";
 import { checkProjects} from "./checkProjects.js";
 
 let taskNumber = 1;
-
 // this could be a constructor/factory.
 
 const submitData = () => {
 
-    // grab user input.
     const taskSec = document.getElementById("taskSection");
+
+    // grab user input.
     const taskInp = document.getElementById("taskInput").value;
     const taskDesc = document.getElementById("taskDescription").value;
     const projInp = document.getElementById("projectInput").value;
@@ -19,6 +19,7 @@ const submitData = () => {
     //(title, description, entry, dueDate, priority, notes, status, checkProjects) 
 
     let taskEntry = window['task_'+ taskNumber] = toDoFactory(taskInp, taskDesc, taskNumber, dateInp, projInp); 
+    
     const taskTitle = document.createElement("div");
     const taskContent = document.createElement("div");
     const projectContent = document.createElement("div");
@@ -34,6 +35,7 @@ const submitData = () => {
     taskEl.id = taskEntry.title;
     taskEl.classList.add("taskItem");
 
+
     //title info
     taskTitle.innerText = `${taskEntry.title}`;
     taskTitle.classList.add("taskTitle");
@@ -41,11 +43,12 @@ const submitData = () => {
     taskContent.innerText = `${taskEntry.description}`;
     taskContent.classList.add("taskContent");
     //project
-    projectContent.innerText
+    // projectContent.innerText
     //due date
     taskDue.innerText=`${taskEntry.dueDate}`;
     taskDue.classList.add("taskDueDate");
-  
+
+    // adds to DOM
     taskSec.append(taskEl); 
     taskEl.append(taskTitle);
     taskTitle.append(taskContent);
@@ -55,7 +58,6 @@ const submitData = () => {
     document.getElementById("addTask").classList.remove("hide");
     document.getElementById("inputContainer").remove();
 
-    // return taskEntry;
 
 };
 
