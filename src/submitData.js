@@ -27,11 +27,10 @@ const submitData = () => {
             project.tasks = [taskInp];
          }
          else {
-            let project = window[projInp];
-            project.tasks.push(taskInp); 
-            console.log("already exists");
-
+            let addToExisting = window[projInp];
+            addToExisting.tasks.push(taskInp); 
          }; 
+         checkProjects();
     })();
 
     const taskTitle = document.createElement("div");
@@ -39,8 +38,7 @@ const submitData = () => {
     const projectContent = document.createElement("div");
     const taskDue = document.createElement("div");
 
-    checkProjects();
-
+    
     //hides user input section and adds obj to taskSection in DOM.  
     let taskEl = document.createElement("div");
     let taskId = "task_" + taskNumber++;                                                
@@ -57,7 +55,6 @@ const submitData = () => {
     taskContent.innerText = `${taskEntry.description}`;
     taskContent.classList.add("taskContent");
     //project
-    // projectContent.innerText
     //due date
     taskDue.innerText=`${taskEntry.dueDate}`;
     taskDue.classList.add("taskDueDate");

@@ -10,9 +10,10 @@ const checkProjects = ()=> {
     let temp2 = "";
     let temp3 = "";
     let projName = "";
+
     for (let i =1; i < 1000; i++) {
         //trying to pass in the name of the project to test if element with same name already exists in DOM.
-        projName = window[task+i].project; 
+        projName = window[task+i]; 
 
         console.log(projName+" testingprojName");
 
@@ -22,9 +23,12 @@ const checkProjects = ()=> {
             return undefined;
         }
 
-        else if (document.body.contains(document.getElementById(projName) ) === true) {
+        else if (document.body.contains(document.getElementById(projName.project) ) === true) {
             console.log("EXISTSS");
-            // part of this is failing possibly.
+            let li = document.createElement("li");
+            li.id = projName;
+            document.getElementById(projName.project).appendChild(li);
+        
         }
 
         else { 
