@@ -6,13 +6,11 @@ let activeProjects = [];
 
 const checkProjects = ()=> {
     let task = "task_";
-    let temp = "";
-    let temp2 = "";
     let projName = "";
     let projTasks = "";
 
 
-    for (let i =1; i < 1000; i++) {
+    for (let i =1; i < 100; i++) {
         projName = window[task+i]; 
 
         // not sure what this even does.
@@ -22,55 +20,29 @@ const checkProjects = ()=> {
 
         else { 
         // if project with name already exists.
-            for (let j = 0 ; j < window[projName.project].tasks.length; j++ ) {
-                projTasks = window[projName.project].tasks[j];
-
-                if (document.body.contains(document.getElementById(projName.project) ) === true) {
-                //     //trying to remove list items before looping through to re-add.
-                    document.getElementById(projName.project).remove();
-        
-                    let projEl = document.createElement("div");
-                    projEl.innerHTML= window[projName.project].projectName;
-        
-                    projEl.id = window[projName.project].projectName;
-                    document.getElementById("Project").appendChild(projEl);
-        
-                    // list out tasks that are part of project
+            if (document.body.contains(document.getElementById(projName.project) ) === true) {
+                document.getElementById(projName.project).remove();
+            }
+            else {
+            // after 3rd task, DOM resets bug.
+                let projEl = document.createElement("div");
+                projEl.innerHTML= window[projName.project].projectName;
+                projEl.id = window[projName.project].projectName;
+                document.getElementById("Project").appendChild(projEl);
+                // bug may be due to this length not updating as more items are added.
+                for (let j = 0; j < window[projName.project].tasks.length; j++) {
+                // list out tasks that are part of project
+                    projTasks = window[projName.project].tasks[j];
                     let li =document.createElement("li");
                     li.id = projTasks;
                     li.innerHTML = projTasks;
                     projEl.appendChild(li);
-                }
-                // adds new project with first task to DOM.
-                else { 
-        
-                    let projEl = document.createElement("div");
-                    projEl.innerHTML= window[projName.project].projectName;
-        
-                    projEl.id = window[projName.project].projectName;
-                    // projTasks = window[projName.project].tasks[0];
-                    document.getElementById("Project").appendChild(projEl);
-        
-                    // list out tasks that are part of project
-                    let li = document.createElement("li");
-                    li.id = projTasks;
-                    li.innerHTML = projTasks;
-                    projEl.appendChild(li);
-        
-                    temp = "";
-                    temp2 = "";
-        
-                    };
+                }    
             }
-        }
+        };
 
-
-
-        
-            // }
     };
-
-};
-
+        
+    };
 
 export { checkProjects}
