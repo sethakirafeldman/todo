@@ -15,18 +15,20 @@ const submitData = () => {
     const projInp = document.getElementById("projectInput").value;
     const dateInp = document.getElementById("dateSelect").value;
 
-    // creates unique object with # appended to taskEntry_ 
+    // creates unique object with # appended to task_ 
     //(title, description, entry, dueDate, priority, notes, status, checkProjects) 
 
     let taskEntry = window['task_'+ taskNumber] = toDoFactory(taskInp, taskDesc, taskNumber, dateInp, projInp); 
     
-    // if object already exists, add to tasks array, if not, create new object. IIFE
+    //IIFE
     ( () =>  {
+         //if no existing project object, creates one
          if (window[projInp] === undefined ) {
             let project = window[projInp] = new Object({projectName: projInp});
             project.tasks = [taskInp];
          }
          else {
+            // pushes task name to appropriate project object.
             let addToExisting = window[projInp];
             addToExisting.tasks.push(taskInp); 
          }; 
@@ -35,7 +37,7 @@ const submitData = () => {
 
     const taskTitle = document.createElement("div");
     const taskContent = document.createElement("div");
-    const projectContent = document.createElement("div");
+   //  const projectContent = document.createElement("div");
     const taskDue = document.createElement("div");
 
     
