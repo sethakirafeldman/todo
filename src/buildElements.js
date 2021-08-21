@@ -37,7 +37,8 @@ const containerGen = elFactory("div", 'main', 'container', "");
 const addTask = elFactory("button", "container", "addTask", textContent.task);
 const taskSection = elFactory("div", "container", "taskSection","");
 
-
+// creates global obj to store project info.
+window.activeProjects = {};
 
 headerGen.build();
 titleGen.build();

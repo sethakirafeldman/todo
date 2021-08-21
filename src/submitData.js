@@ -3,7 +3,16 @@ import { checkBox } from "./checkBox.js";
 import { checkProjects} from "./checkProjects.js";
 
 let taskNumber = 1;
-// this could be a constructor/factory.
+let projNumber = 1;
+
+/* issue with submitData and checkProjects:
+new project object is being created in window[]
+this makes it difficult to track how many projects there are. perhaps a loop to check
+would work  but this is a bit weird doing it within the window obj
+
+perhaps storing the projects within another object so window[activeprojects]['project_1']
+would work to make it easier to access. 
+*/
 
 const submitData = () => {
 
@@ -16,7 +25,7 @@ const submitData = () => {
     const dateInp = document.getElementById("dateSelect").value;
 
     // creates unique object with # appended to task_ 
-    //(title, description, entry, dueDate, priority, notes, status, checkProjects) 
+    //(title, description, entry, dueDate, project, notes, status) 
 
     let taskEntry = window['task_'+ taskNumber] = toDoFactory(taskInp, taskDesc, taskNumber, dateInp, projInp); 
     
@@ -24,14 +33,28 @@ const submitData = () => {
     ( () =>  {
          //if no existing project object, creates one
          if (window[projInp] === undefined ) {
-            let project = window[projInp] = new Object({projectName: projInp});
+            // let project = window[projInp] = new Object({projectName: projInp});
+            let project = activeProjects['project_'+projNumber] = new Object();
+            project.projectName= projInp;
             project.tasks = [taskInp];
+            // activeProjects[project];
+            projNumber++;
          }
          else {
-            // pushes task name to appropriate project object.
-            let addToExisting = window[projInp];
-            addToExisting.tasks.push(taskInp); 
+            // if project exists, pushes task name to appropriate project object.
+            let k =0;
+            let checkProj = "project_" + k;
+            // this needs to check if entered project name matches existing one.
+            while (k < activeProjects[checkProj]) {
+               if (activeProjects.hasOwnProperty(checkProj) === true) {
+                  let addToExisting = activeProjects[checkProj];
+                  addToExisting.tasks.push(taskInp);   
+               }
+
+               k++;
+            }   
          }; 
+
          checkProjects();
     })();
 

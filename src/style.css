@@ -150,3 +150,16 @@ padding: 1%;
     
 }
 
+.side-project {
+    font-size: large;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    border: solid;
+    border-radius: 5%;
+}
+
+.list-style {
+    font-size: medium;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+
+}
