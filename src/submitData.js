@@ -5,15 +5,6 @@ import { checkProjects} from "./checkProjects.js";
 let taskNumber = 1;
 let projNumber = 1;
 
-/* issue with submitData and checkProjects:
-new project object is being created in window[]
-this makes it difficult to track how many projects there are. perhaps a loop to check
-would work  but this is a bit weird doing it within the window obj
-
-perhaps storing the projects within another object so window[activeprojects]['project_1']
-would work to make it easier to access. 
-*/
-
 const submitData = () => {
 
     const taskSec = document.getElementById("taskSection");
@@ -41,18 +32,38 @@ const submitData = () => {
             projNumber++;
          }
          else {
+            /* new projects are being created
+            adding to the correct project when not new is the challenge
+            
+            Object.keys(activeProjects)[i] can access specific key key of obj.
+
+            loop is currently causing issues. 
+
+            it needs to go through and check if activeProjects[project_#] contains projectName that 
+            
+            matches entered proj name
+
+
+            */
+
             // if project exists, pushes task name to appropriate project object.
-            let k =0;
-            let checkProj = "project_" + k;
+            let k =1;
+            let checkProj = "project_";
             // this needs to check if entered project name matches existing one.
-            while (k < activeProjects[checkProj]) {
-               if (activeProjects.hasOwnProperty(checkProj) === true) {
-                  let addToExisting = activeProjects[checkProj];
+
+            while (k <= Object.keys(activeProjects).length) {
+               k++;
+               if (activeProjects.hasOwnProperty(checkProj+k) === true) {
+                  console.log("has property");
+                  let addToExisting = activeProjects[checkProj+k];
                   addToExisting.tasks.push(taskInp);   
+                  k = 1;
                }
 
-               k++;
-            }   
+
+              
+            };   
+
          }; 
 
          checkProjects();
