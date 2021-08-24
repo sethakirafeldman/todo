@@ -23,6 +23,9 @@ const submitData = () => {
     //IIFE
     ( () =>  {
          //if no existing project object, creates one
+
+         // this need to check if activeProjects contains projectName = to projInp.
+         
          if (window[projInp] === undefined ) {
             // let project = window[projInp] = new Object({projectName: projInp});
             let project = activeProjects['project_'+projNumber] = new Object();
@@ -30,42 +33,26 @@ const submitData = () => {
             project.tasks = [taskInp];
             // activeProjects[project];
             projNumber++;
+            console.log(activeProjects); 
+
          }
+         // if object exists, check through objs to see if matching proj names.
          else {
-            /* new projects are being created
-            adding to the correct project when not new is the challenge
-            
-            Object.keys(activeProjects)[i] can access specific key key of obj.
+            Object.entries(activeProjects).forEach(entry => {
+               // let [key, value] = entry; 
+               let temporary = entry;
+               // [0] is project name index, [1] is project name.
 
-            loop is currently causing issues. 
+                  if (temporary[1].projectName === projInp ) {
+                     
+                     return activeProjects[temporary[0]].tasks.push(taskInp) +
+                     console.log(activeProjects); 
+                         
+                  }   
+               });
+         }    
 
-            it needs to go through and check if activeProjects[project_#] contains projectName that 
-            
-            matches entered proj name
-
-
-            */
-
-            // if project exists, pushes task name to appropriate project object.
-            let k =1;
-            let checkProj = "project_";
-            // this needs to check if entered project name matches existing one.
-
-            while (k <= Object.keys(activeProjects).length) {
-               k++;
-               if (activeProjects.hasOwnProperty(checkProj+k) === true) {
-                  console.log("has property");
-                  let addToExisting = activeProjects[checkProj+k];
-                  addToExisting.tasks.push(taskInp);   
-                  k = 1;
-               }
-
-
-              
-            };   
-
-         }; 
-
+             
          checkProjects();
     })();
 
