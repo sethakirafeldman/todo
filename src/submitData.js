@@ -23,38 +23,51 @@ const submitData = () => {
     //IIFE
     ( () =>  {
          //if no existing project object, creates one
-
-         // this need to check if activeProjects contains projectName = to projInp.
-         
-         if (window[projInp] === undefined ) {
+         if (Object.keys(activeProjects).length === 0) {
             // let project = window[projInp] = new Object({projectName: projInp});
             let project = activeProjects['project_'+projNumber] = new Object();
             project.projectName= projInp;
             project.tasks = [taskInp];
-            // activeProjects[project];
-            projNumber++;
             console.log(activeProjects); 
 
          }
-         // if object exists, check through objs to see if matching proj names.
-         else {
-            Object.entries(activeProjects).forEach(entry => {
-               // let [key, value] = entry; 
-               let temporary = entry;
-               // [0] is project name index, [1] is project name.
 
-                  if (temporary[1].projectName === projInp ) {
+         else if ( ) {
+
+            
+         }
+         // if there are any projects in activeProjects
+         else if (Object.keys(activeProjects).length > 0 ) {
+            for (let m = 0; m <= 30/*Object.values(activeProjects).length*/; m++) {
+               // goes through values of active projects 1 by 1.
+               let existingProject = Object.values(activeProjects)[m]; 
+                  // checks if projectName matches user input project name
+                  if ( existingProject.projectName === projInp ) {
+                     //pushes userinputted task to particular project. 
+                     existingProject.tasks.push(taskInp);
+                     m=0;
+                     break;
+                  }
+                  // bug here creates extra project without loop ... doesn't create with loop.
+                  else if (existingProject.projectName !== projInp) {   
+                     let o = 1;
+                     // projNumber++;
+                        // make this ensure new duplicate project isn't created. 
+                     o++;   
+                     let project = activeProjects['project_'+o] = new Object();
+                     project.projectName= projInp;
+                     project.tasks = [taskInp];
+                     console.log(activeProjects);
                      
-                     return activeProjects[temporary[0]].tasks.push(taskInp) +
-                     console.log(activeProjects); 
-                         
-                  }   
-               });
-         }    
+                  } 
+            };            
+         }
 
-             
+         // creates new object if project does not exist.
+   
          checkProjects();
-    })();
+         }             
+    )();
 
     const taskTitle = document.createElement("div");
     const taskContent = document.createElement("div");
