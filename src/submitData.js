@@ -28,51 +28,30 @@ const submitData = () => {
             let project = activeProjects['project_'+1] = new Object();
             project.projectName= projInp;
             project.tasks = [taskInp];
-            console.log("no existing projects, create one"); 
-
          }
-
-         else {
-            // delete all of this and start over. 
-            console.log("existing projects");
-            for (let m=0; m < Object.values(activeProjects).length; m++) {
-               let temp = Object.values(activeProjects)[m];
-                  // if project already added.
-               // if task already in object, stop from adding again.
-
-               // if ( temp.tasks.includes(taskInp) === true) {
-               //    console.log("if task already in object, stop from adding again");
-               //    // m=0;
-               // }
-
-                  if (temp.projectName.includes(projInp) === false) {
-                  console.log("project not found, create new");
-                  projNumber = Object.values(activeProjects).length;
-                  projNumber++;
-                  console.log(`new project and value of projNumber is ${projNumber}`);
-                  let project = activeProjects['project_'+projNumber] = new Object();
-                  project.projectName= projInp;
-                  project.tasks = [taskInp];
-                  projNumber = Object.values(activeProjects).length;
-                  console.log(activeProjects); 
-
-                  break;
-
-               }
-               // if task not in obj, push.
-               else {                     
-               temp.tasks.push(taskInp);
-               // m=0;
-               console.log("if task not in obj, push.");
-
-               break;
-               }
-
-  
-            }
-            
-         }   
-
+         // if there are projects
+         else if (Object.keys(activeProjects.length >= 1)) {
+            //iterates through projects checking for matching proj name.
+            Object.values(activeProjects).forEach( 
+               (proj) => { 
+                  //if matching proj name, pushes task from entry to proj.
+                  if (proj.projectName === projInp) {
+                     proj.tasks.push(taskInp);
+                  }
+                  // need this to wait to check that none of the iterations meet condition.
+                  else {
+                     let checkForExisting = Object.values(activeProjects).some(s => s.projectName === projInp);
+                     if (checkForExisting === false) {
+                        projNumber++;
+                        let project = activeProjects[`project_ ${projNumber}`] = new Object();
+                        project.projectName= projInp;
+                        project.tasks = [taskInp];
+                        projNumber = Object.keys(activeProjects).length;
+                     }
+                  }
+               })
+         };
+ 
          checkProjects();
          }             
     )();
