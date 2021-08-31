@@ -6,6 +6,9 @@ const checkProjects = ()=> {
     let task = "task_";
     let projName = "";
     let projTasks = "";
+    // li.classList.add("list-style");
+    //projEl.classList.add("side-project");
+
 
 
     for (let i =1; i < 100; i++) {
@@ -22,29 +25,34 @@ const checkProjects = ()=> {
             if (document.body.contains(document.getElementById(projName.project) ) === true) {
                 document.getElementById(projName.project).remove();
             }
+
+            else if ( Object.keys(activeProjects).length === 0) {
+                console.log("nothing yet.")
+
+            }
             else {
             // after 3rd task, DOM resets bug.
+            for (let i = 0; i < Object.values(activeProjects).length; i++) {
+
                 let projEl = document.createElement("div");
                 projEl.classList.add("side-project");
-                // projEl.innerHTML= window[projName.project].projectName;
-                projEl.innerHTML= activeProjects['project_1'].projectName;
-                // projEl.id = window[projName.project].projectName;
+                projEl.innerHTML= activeProjects[Object.keys(activeProjects)[i]].projectName;
 
-                projEl.id = activeProjects['project_1'].projectName;
+                projEl.id = Object.keys(activeProjects)[i];
                 document.getElementById("Project").appendChild(projEl);
-                // activeProjects.projects.push(window[projName.project]);
 
-                // bug may be due to this length not updating as more items are added.
-                for (let j = 0; j < activeProjects['project_1'].length; j++) {
-                // list out tasks that are part of project
-                    // projTasks = window[window[task+i].project].tasks[j];
-                    // projTasks = activeProjects[]
-                    let li =document.createElement("li");
-                    li.classList.add("list-style");
-                    li.id = projTasks;
-                    li.innerHTML = projTasks;
-                    projEl.appendChild(li);
+                    // list out tasks that are part of project
+                    for (let j = 0; j <= Object.values(activeProjects)[i].tasks.length; j++) {
+                        let li =document.createElement("li");
+                        let pNumber = i++;
+                        li.classList.add("list-style");
+                        li.id = projTasks;
+                        li.innerHTML = Object.values(activeProjects)[i].tasks[j];
+                        let appendToProj = document.getElementById(`project_${pNumber}`);
+                        appendToProj.appendChild(li);
                 }    
+            }
+     
             }
         };
 
