@@ -8,44 +8,79 @@ const checkProjects = ()=> {
     // sub loop goes through tasks of active project 
     let i = 0;
     let j = 0;
-    let pNum = 1;
     let Project = document.getElementById("Project");
 
-    // clears side-bar content if Project contains nodes. Resets for each while loop.
+    // clears if there is content to prevent duplicates in DOM. 
     if (Project.childNodes.length > 1 ) {
-        // bug: when 2nd project is created, deletion fails and stops script before corresponding DOM object is made. 
-        Object.keys(activeProjects).forEach(entry => {
-        document.getElementById(entry).remove()
-      
-        // pnum=1;
-
-        });
-        console.log(`Deletion: the value of i and j are ${i} and ${j}`);
+        Project.innerHTML= "Projects";
     }
+        while (i < Object.values(activeProjects).length) {
 
-    else {console.log("nothing to delete") };
-    // i starts out as 0
-    while (i < Object.values(activeProjects).length) {
+            // console.log(`Outer while loop has fired ${i} times`);
+            let projEl = document.createElement("div");
+            projEl.classList.add("side-project");
+            projEl.innerHTML = Object.values(activeProjects)[i].projectName;
+            projEl.id = Object.keys(activeProjects)[i];
+            document.getElementById("Project").appendChild(projEl);
+            
+                Object.values(activeProjects).forEach(entry=> {
+                    // example : Object.values(activeProjects)[0].tasks.forEach(l=>{console.log(l)})
+                    let t = entry.tasks.forEach(l=> {
+                        
+                        return l }); 
+                    // console.log(`The project: ${entry.projectName} has tasks: ${entry.tasks[l]}`);
+                        
 
-        console.log(`Outer while loop has fired ${i} times`);
-        let projEl = document.createElement("div");
-        projEl.classList.add("side-project");
-        projEl.innerHTML = Object.values(activeProjects)[i].projectName;
-        projEl.id = Object.keys(activeProjects)[i];
-        document.getElementById("Project").appendChild(projEl);
-
-        while ( j < Object.values(activeProjects)[i].tasks.length) {
-            console.log(`inner while loop has fired ${j} times`);
-            let li = document.createElement("li");
-            li.classList.add("list-style");
-            li.innerHTML = Object.values(activeProjects)[i].tasks[j];
-            document.getElementById(Object.keys(activeProjects)[i]).appendChild(li);
-            j++;
+                    // let t = Object.values(activeProjects).entry.length;
+                    // let li = document.createElement("li");
+                    // li.classList.add("list-style");
+                    // li.innerHTML = Object.values(entry.tasks[]);
+                    // document.getElementById(Object.keys(activeProjects)[i]).appendChild(li);
+                })
+                
+            i++;
         }
-        i++;
-    }
-}    
 
+
+
+    // clears side-bar content if Project contains nodes. Resets for each while loop.
+    // if (Project.childNodes.length > 1 ) {
+    //     // bug: when 2nd project is created, deletion fails and stops script before corresponding DOM object is made. 
+    //     Object.keys(activeProjects).forEach(entry => {
+    //     document.getElementById(entry).remove()
+      
+    //     // pnum=1;
+
+    //     });
+    //     console.log(`Deletion: the value of i and j are ${i} and ${j}`);
+    // }
+
+
+    // else {
+
+    // // i starts out as 0
+    // while (i < Object.values(activeProjects).length) {
+
+    //     console.log(`Outer while loop has fired ${i} times`);
+    //     let projEl = document.createElement("div");
+    //     projEl.classList.add("side-project");
+    //     projEl.innerHTML = Object.values(activeProjects)[i].projectName;
+    //     projEl.id = Object.keys(activeProjects)[i];
+    //     document.getElementById("Project").appendChild(projEl);
+
+    //     while ( j < Object.values(activeProjects)[i].tasks.length) {
+    //         console.log(`inner while loop has fired ${j} times`);
+    //         let li = document.createElement("li");
+    //         li.classList.add("list-style");
+    //         li.innerHTML = Object.values(activeProjects)[i].tasks[j];
+    //         document.getElementById(Object.keys(activeProjects)[i]).appendChild(li);
+    //         j++;
+    //     }
+    //     i++;
+    // }
+    // };
+
+// }    
+    }
 
 export { checkProjects}
-

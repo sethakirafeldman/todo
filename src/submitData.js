@@ -51,8 +51,9 @@ const submitData = () => {
                   }
                })
          };
- 
+         
          checkProjects();
+
          }             
     )();
 
