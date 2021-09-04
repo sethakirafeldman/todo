@@ -19,11 +19,12 @@ const checkProjects = ()=> {
             document.getElementById("Project").appendChild(projEl);  
 
             Object.values(activeProjects)[i].tasks.forEach(l=> {
-                console.log(`the task value is :${l}`)
+                // console.log(`the task value is :${l}`)
                 let li = document.createElement("li");
                 li.classList.add("list-style");
-                li.innerHTML = l;
-                // this line needs to target correct project in DOM.
+                li.id = l.title;
+                li.innerHTML = l.title;
+
                 document.getElementById(Object.keys(activeProjects)[i]).appendChild(li);
                 });  
         i++;

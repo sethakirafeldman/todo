@@ -1,5 +1,3 @@
-
-
 const toDoFactory = (title, description, entry, dueDate, project, notes, status) => {
 
         return {

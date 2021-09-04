@@ -19,15 +19,16 @@ const submitData = () => {
     //(title, description, entry, dueDate, project, notes, status) 
 
     let taskEntry = window['task_'+ taskNumber] = toDoFactory(taskInp, taskDesc, taskNumber, dateInp, projInp); 
-    
+
     //IIFE
     ( () =>  {
-         //if no existing project object, creates one
+         //if no existing project object, create one
          if (Object.keys(activeProjects).length === 0) {
-            // let project = window[projInp] = new Object({projectName: projInp});
             let project = activeProjects['project_'+1] = new Object();
             project.projectName= projInp;
-            project.tasks = [taskInp];
+            project.tasks= [];
+            project.tasks.push(taskEntry)
+            // project.tasks = [taskInp]; old met
          }
          // if there are projects
          else if (Object.keys(activeProjects.length >= 1)) {
@@ -36,22 +37,25 @@ const submitData = () => {
                (proj) => { 
                   //if matching proj name, pushes task from entry to proj.
                   if (proj.projectName === projInp) {
-                     proj.tasks.push(taskInp);
+                     // proj.tasks.push(taskInp);
+                     proj.tasks.push(taskEntry);
                   }
-                  // need this to wait to check that none of the iterations meet condition.
+                  // if there are projects already, but the new projInp does not match. Create new.
                   else {
                      let checkForExisting = Object.values(activeProjects).some(s => s.projectName === projInp);
-                     if (checkForExisting === false) {
-                        projNumber++;
-                        let project = activeProjects[`project_ ${projNumber}`] = new Object();
-                        project.projectName= projInp;
-                        project.tasks = [taskInp];
-                        projNumber = Object.keys(activeProjects).length;
-                     }
+                        if (checkForExisting === false) {
+                           projNumber++;
+                           let project = activeProjects[`project_ ${projNumber}`] = new Object();
+                           project.projectName= projInp;
+                           // project.tasks = [taskInp];
+                           project.tasks = [];
+                           project.tasks.push(taskEntry);
+                           projNumber = Object.keys(activeProjects).length;
+                        }
                   }
                })
          };
-         
+         // activeProjects[`project_ ${projNumber}`].tasks.push(taskEntry);
          checkProjects();
 
          }             
