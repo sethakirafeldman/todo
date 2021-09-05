@@ -1,6 +1,6 @@
 import { toDoFactory } from "./buildToDo";
 import { checkBox } from "./checkBox.js";
-import { checkProjects} from "./checkProjects.js";
+import { genSideBarContent } from "./genSideBarContent.js";
 
 let taskNumber = 1;
 let projNumber = 1;
@@ -52,7 +52,7 @@ const submitData = () => {
                   }
                })
          };
-         checkProjects();
+         genSideBarContent();
 
          }             
     )();

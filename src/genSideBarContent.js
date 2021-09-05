@@ -2,7 +2,7 @@
 //needs project objects to store corresponding tasks. 
 // which leaves with an object for task + an object for project the task is part of. 
 
-const checkProjects = ()=> {
+const genSideBarContent = ()=> {
     let i = 0;
     let Project = document.getElementById("Project");
     
@@ -33,12 +33,11 @@ const checkProjects = ()=> {
             projEl.classList.add("side-project");
             projEl.innerHTML = Object.values(activeProjects)[i].projectName;
             projEl.id = Object.keys(activeProjects)[i];
-            projEl.addEventListener("click", (projEl) => {
+            projEl.addEventListener("mouseover", (projEl) => {
                 showTaskList(projEl)});
             document.getElementById("Project").appendChild(projEl);  
 
             Object.values(activeProjects)[i].tasks.forEach(l=> {
-                // console.log(`the task value is :${l}`)
                 let li = document.createElement("li");
                 li.classList.add("list-style");
                 li.classList.add("hide-bar");
@@ -50,4 +49,4 @@ const checkProjects = ()=> {
         } 
     }
 
-export { checkProjects}
+export { genSideBarContent}

@@ -13,9 +13,6 @@ const buildSideBar = ()=>  {
     project.innerText = "Projects";
     // project.classList.add("hide-bar");
     sideBar.appendChild(project);
-
-
-
 };
 
 //Projects to dynamically display all projects as list items under heading.
