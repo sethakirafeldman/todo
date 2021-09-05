@@ -11,6 +11,7 @@ const buildSideBar = ()=>  {
     let project = document.createElement("div");
     project.id = "Project";
     project.innerText = "Projects";
+    // project.classList.add("hide-bar");
     sideBar.appendChild(project);
 
 

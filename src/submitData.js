@@ -28,7 +28,6 @@ const submitData = () => {
             project.projectName= projInp;
             project.tasks= [];
             project.tasks.push(taskEntry)
-            // project.tasks = [taskInp]; old met
          }
          // if there are projects
          else if (Object.keys(activeProjects.length >= 1)) {
@@ -37,7 +36,6 @@ const submitData = () => {
                (proj) => { 
                   //if matching proj name, pushes task from entry to proj.
                   if (proj.projectName === projInp) {
-                     // proj.tasks.push(taskInp);
                      proj.tasks.push(taskEntry);
                   }
                   // if there are projects already, but the new projInp does not match. Create new.
@@ -47,7 +45,6 @@ const submitData = () => {
                            projNumber++;
                            let project = activeProjects[`project_ ${projNumber}`] = new Object();
                            project.projectName= projInp;
-                           // project.tasks = [taskInp];
                            project.tasks = [];
                            project.tasks.push(taskEntry);
                            projNumber = Object.keys(activeProjects).length;
@@ -55,7 +52,6 @@ const submitData = () => {
                   }
                })
          };
-         // activeProjects[`project_ ${projNumber}`].tasks.push(taskEntry);
          checkProjects();
 
          }             
