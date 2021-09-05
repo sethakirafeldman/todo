@@ -14,7 +14,6 @@ const buildTaskForm = () => {
     let inputContainer = document.createElement("div");
     inputContainer.id = "inputContainer";
     document.getElementById("taskSection").before(inputContainer);
-    // container.appendChild(inputContainer);
     
     //create taskName input
     const taskInput = document.createElement("input");
@@ -86,3 +85,4 @@ taskEvent.addEventListener("click", buildTaskForm);
 
 
 export {buildTaskForm}
+export {attributeSetter}

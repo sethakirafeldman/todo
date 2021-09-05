@@ -1,6 +1,7 @@
-import { toDoFactory } from "./buildToDo";
+import { toDoFactory } from "./toDoFactory";
 import { checkBox } from "./checkBox.js";
 import { genSideBarContent } from "./genSideBarContent.js";
+import { editTask } from "./editTasks.js";
 
 let taskNumber = 1;
 let projNumber = 1;
@@ -75,6 +76,8 @@ const submitData = () => {
     //title info
     taskTitle.innerText = `${taskEntry.title}`;
     taskTitle.classList.add("taskTitle");
+    taskTitle.addEventListener("click", editTask);
+
     //description
     taskContent.innerText = `${taskEntry.description}`;
     taskContent.classList.add("taskContent");
