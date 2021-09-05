@@ -1,0 +1,12 @@
+Features left to add 09/05/2021
+
+strike-through on task status === true, vice-versa
+styling for sidebar
+dynamic chevrons for projects in side bar
+local storage to store user data
+editable todos/projects 
+deleteable todos/projects
+
+it may be better to display project content on own 'page' rather than show all tasks in main window.
+ie, multiple pages All Tasks, Project 1, completed, left-to-do, etc. 
+

@@ -33,7 +33,7 @@ const buildMenuButton = () => {
     hamburg.appendChild(span2);
     hamburg.appendChild(span3);
     
-    hamburg.addEventListener("click", menuExpand);
+    hamburg.addEventListener("mouseover", menuExpand);
 
 };
 
