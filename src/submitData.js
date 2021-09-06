@@ -60,23 +60,23 @@ const submitData = () => {
 
     const taskTitle = document.createElement("div");
     const taskContent = document.createElement("div");
-   //  const projectContent = document.createElement("div");
     const taskDue = document.createElement("div");
 
     
     //hides user input section and adds obj to taskSection in DOM.  
     let taskEl = document.createElement("div");
     let taskId = "task_" + taskNumber++;                                                
-    taskEl.innerHTML = `<input type ="checkbox" id = ${taskId} value = ${taskEntry.title} class = "checkBox">`;
+    taskEl.innerHTML = `<input type ="checkbox" id = ${taskId} 
+      value = ${taskEntry.title} class = "checkBox">`;
     taskEl.addEventListener("click", checkBox);
-    taskEl.id = taskEntry.title;
+    taskEl.id = taskId;
     taskEl.classList.add("taskItem");
 
 
     //title info
     taskTitle.innerText = `${taskEntry.title}`;
     taskTitle.classList.add("taskTitle");
-    taskTitle.addEventListener("click", editTask);
+    taskTitle.addEventListener("click", ()=> { editTask(taskEl) });
 
     //description
     taskContent.innerText = `${taskEntry.description}`;

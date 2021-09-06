@@ -85,4 +85,3 @@ taskEvent.addEventListener("click", buildTaskForm);
 
 
 export {buildTaskForm}
-export {attributeSetter}
