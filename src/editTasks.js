@@ -1,36 +1,55 @@
 import { genSideBarContent } from "./genSideBarContent.js";
 
+const editFactory = (type, parent, id, textType, text) => {
+    const build = () => {
+        let el = document.createElement(type);
+        let appendAble = document.getElementById(parent);
+        el.id = id;
+        if (textType === "innerText") {
+            el.innerText = text;
+        }
+        else if (textType === "innerHTML") {
+            el.innerHTML = text;
+        }
+        else if (textType === "placeholder") {
+            el.placeholder = text;
+        }
+
+        appendAble.appendChild(el);
+    };
+
+    return {
+        type,
+        parent,
+        id,
+        textType,
+        build
+    }
+
+};
+
 const editTask = (t) => {
-    console.log(t);
-    // refer to attributeSetter in buildTaskForm.
 
-    let editContainer = document.createElement("div");
-    editContainer.id = "editContainer";
-    document.getElementById("container").appendChild(editContainer);
-    
-    const editDesc = document.createElement("h5");
-    editDesc.innerText="Task Editor";
-    editContainer.appendChild(editDesc);
+    const editContainer = editFactory("div","container","editContainer", "innerText","");
+    editContainer.build();
 
-    const taskInputEditor = document.createElement("input");
-    taskInputEditor.id = "taskEdit";
-    taskInputEditor.placeholder = window[t.id].title;
-    editContainer.appendChild(taskInputEditor);
+    const editDesc = editFactory("h5", "editContainer","","innerText","Task Editor");
+    editDesc.build();
 
-    const editSubmit = document.createElement("button");
-    editSubmit.innerHTML = "Submit Change";
+    const taskInputEditor = editFactory("input", "editContainer", "taskEdit", "placeholder", window[t.id].title);
+    taskInputEditor.build();
 
-    // changes task name.
-    editSubmit.addEventListener("click", ()=> {
-        window[t.id].title = taskInputEditor.value;
-        document.getElementById(t.id).childNodes[1].innerText = taskInputEditor.value;            
-        genSideBarContent();
-        editContainer.remove();
-        });
-
-    editContainer.appendChild(editSubmit);
-
-   
+    const editSubmit = editFactory("button", "editContainer", "editSubmit", "innerHTML", "Submit Change");
+    editSubmit.build();
+        // changes task name on submit of change.
+        document.getElementById("editSubmit").addEventListener("click", ()=> {
+            let taskEditor = document.getElementById("taskEdit");
+            window[t.id].title = taskEditor.value;
+            document.getElementById(t.id).childNodes[1].innerText = taskEditor.value;            
+            genSideBarContent();
+            editContainer.remove();
+            });
+             
 }
 
 
