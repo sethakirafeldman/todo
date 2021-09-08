@@ -38,12 +38,39 @@
     justify-content: center;
 } 
 
-#inputContainer {
+#inputContainer{
     position: relative;
-    left: 150px;    
+    margin: auto;
     font-size: larger;
     text-align: center;
     width: 60%;
+}
+
+#editContainer {
+    display: flex;
+    flex-direction: column;
+    font-size: larger;
+    padding: 2%;
+    border: none;
+    width: 50%;
+    position: relative;
+    margin: auto;
+}
+
+#descEdit, #taskEdit, #dateEdit {
+    font-size: larger;
+
+} 
+
+#editSubmit {
+    width: auto;
+    background-color: teal;
+    color:whitesmoke;
+    width: fit-content;
+    text-align: center;
+    margin: auto;
+    padding:1%;
+
 }
 
 #submitBtn {
@@ -51,7 +78,7 @@
     font-size: large;
     text-align: center;
     justify-content: center;
-    background-color: green;
+    background-color: teal;
     color: whitesmoke;
     padding: 2%;
 }
@@ -61,7 +88,7 @@ width: 40%;
 font-size: large;
 text-align: center;
 justify-content: center;
-background-color: green;
+background-color: teal;
 color: whitesmoke;
 padding: 1%;
 }
