@@ -12,22 +12,28 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: larger;
     font-weight: bold;
+    border-color: steelblue;
+    background-color: lightsteelblue;
+    width: 100%;
 
 }
 
 #sideBar {
-    /* color: whitesmoke; */
     position: absolute;
     top: 150px;
-    background-color: rgb(173,216,230, .2);
-    width: 10rem;
+    padding-top: 2rem;
+    background-color: lightsteelblue;
+    width: 11rem;
     height: 100vh;
+
 }
 
 #Project {
     color: black;
     opacity: 100%;
-
+    font-weight: bolder;
+    font-size: x-large;
+    padding-bottom: 5%;
 }
 
 #container {
@@ -44,6 +50,7 @@
     font-size: larger;
     text-align: center;
     width: 60%;
+    left: 1rem;
 }
 
 #editContainer {
@@ -204,13 +211,16 @@ padding: 1%;
 .side-project {
     font-size: large;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    border: solid;
-    border-radius: 5%;
+    font-weight: bold;
+    padding: 2%;
+    border: none;
 }
 
 .list-style {
     font-size: medium;
     font-family: Georgia, 'Times New Roman', Times, serif;
-
+    font-weight: normal;
+    padding:1%;
+    border: none;
 
 }

@@ -30,6 +30,7 @@ const editFactory = (type, parent, id, textType, text) => {
 const editTask = (t) => {
 
     if (document.getElementById("editContainer") === null) {
+
         // need to add project name and due date editor as well. 
 
         const editContainer = editFactory("div","container","editContainer", "innerText","");
