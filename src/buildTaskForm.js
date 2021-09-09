@@ -78,6 +78,19 @@ const buildTaskForm = () => {
     submit.addEventListener("click", submitData);
     inputContainer.appendChild(submit);    
 
+    // cancel button
+    const submitCancel = document.createElement("input");
+    attributeSetter(submitCancel, {
+        "type": "button",
+        "value": "Cancel",
+        "id": "cancelSubmit"
+    });
+    submitCancel.addEventListener("click", ()=> {
+        document.getElementById("addTask").classList.remove("hide");
+        document.getElementById("inputContainer").remove();
+    });
+    inputContainer.appendChild(submitCancel);
+
 };
 // adds function to Add Task button
 const taskEvent = document.getElementById("addTask")

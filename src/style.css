@@ -69,8 +69,19 @@
     width: fit-content;
     text-align: center;
     margin: auto;
-    padding:1%;
+    padding:2%;
 
+}
+
+#editCancel {
+
+    width: auto;
+    background-color: red;
+    color:whitesmoke;
+    width: fit-content;
+    text-align: center;
+    margin: auto;
+    padding:2%;
 }
 
 #submitBtn {
@@ -81,6 +92,18 @@
     background-color: teal;
     color: whitesmoke;
     padding: 2%;
+}
+
+#cancelSubmit {
+
+    width: fit-content%;
+    font-size: large;
+    text-align: center;
+    justify-content: center;
+    background-color: red;
+    color: whitesmoke;
+    padding: 2%;
+
 }
 
 #addTask {
@@ -126,14 +149,14 @@ padding: 1%;
 #taskSection {
     display: flex;
     flex-direction: column;
-    text-align: center;
     width: 50%;
     padding: 2%;
+    margin: auto;
 }
 
 .taskItem {
     position: relative;
-    text-align:center;
+    text-align: left;
     font-size: large;
     height: fit-content;
     width: 80%;
