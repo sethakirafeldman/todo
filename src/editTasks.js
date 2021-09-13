@@ -1,4 +1,5 @@
 import { genSideBarContent } from "./genSideBarContent.js";
+import { deleteObj } from "./deleteObject.js";
 
 const editFactory = (type, parent, id, textType, text) => {
     const build = () => {
@@ -26,7 +27,7 @@ const editFactory = (type, parent, id, textType, text) => {
     }
 
 };
-
+// t is the task object.
 const editTask = (t) => {
 
     if (document.getElementById("editContainer") === null) {
@@ -51,15 +52,25 @@ const editTask = (t) => {
         descEdit.build();
 
         // Date editor
-        const dateLabel = editFactory("label", "editContainer","dateLabel", "innerText", `Due Date (Current: ${window[t.id].dueDate}) ` );
+        const dateLabel = editFactory("label", "editContainer","dateLabel", "innerText", `Due Date (Current: ${window[t.id].dueDate})` );
         dateLabel.build();
+
         const dateSelect = editFactory("input", "editContainer", "dateEdit", "innerText", window[t.id].dueDate);
         dateSelect.build();
+
         let dateSel = document.getElementById("dateEdit");
         dateSel.type ="date";
 
+        // delete button. sets task status to deleted.
+        const  editDelete = editFactory("button", "editContainer", "editDelete", "innerText", "delete task");
+        editDelete.build();
+            //delete function.
+            document.getElementById("editDelete").addEventListener("click", () => {
+                deleteObj(t);
+             });         
+
         // submit button
-        const editSubmit = editFactory("button", "editContainer", "editSubmit", "innerHTML", "submit");
+        const editSubmit = editFactory("button", "editContainer", "editSubmit", "innerText", "submit");
         editSubmit.build();
             // changes task name on submit of change.
             document.getElementById("editSubmit").addEventListener("click", ()=> {
@@ -75,6 +86,7 @@ const editTask = (t) => {
                 genSideBarContent();
                 document.getElementById("editContainer").remove();
                 });
+
         // cancel button        
         const editCancel = editFactory("button", "editContainer","editCancel","innerText", "cancel");
         editCancel.build();
@@ -88,7 +100,5 @@ const editTask = (t) => {
     }
 
 }
-
-
 
 export { editTask }

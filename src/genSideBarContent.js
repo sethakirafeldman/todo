@@ -33,7 +33,7 @@ const genSideBarContent = ()=> {
             projEl.classList.add("side-project");
             projEl.innerHTML = Object.values(activeProjects)[i].projectName;
             projEl.id = Object.keys(activeProjects)[i];
-            projEl.addEventListener("mouseover", (projEl) => {
+            projEl.addEventListener("click", (projEl) => {
                 showTaskList(projEl)});
             document.getElementById("Project").appendChild(projEl);  
 

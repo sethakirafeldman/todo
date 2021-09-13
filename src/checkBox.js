@@ -8,11 +8,11 @@ const checkBox = () => {
         let setCheck = window[getCheck.id];
 
         if (getCheck.checked ===true) {
-            setCheck.status = true;
+            setCheck.status = "complete";
         }
 
         else if (getCheck.checked === false ) {
-            setCheck.status = false;
+            setCheck.status = "incomplete";
         };
     };
 };
