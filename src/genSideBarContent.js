@@ -22,13 +22,15 @@ const genSideBarContent = ()=> {
             }
         }
     };
+        // clears sidebar if there is content to prevent duplicates in DOM. 
+        if (Project.childNodes.length > 1) {
+            Project.innerHTML= "Projects";
+        }
+        // creates sidebar content based. this needs to hide or delete tasks marked 
+        //as deleted or empty projects
 
-    // clears if there is content to prevent duplicates in DOM. 
-    if (Project.childNodes.length > 1 ) {
-        Project.innerHTML= "Projects";
-    }
         while (i < Object.values(activeProjects).length) {
-
+            // adds project name to sidebar DOM
             let projEl = document.createElement("div");
             projEl.classList.add("side-project");
             projEl.innerHTML = Object.values(activeProjects)[i].projectName;
@@ -37,6 +39,7 @@ const genSideBarContent = ()=> {
                 showTaskList(projEl)});
             document.getElementById("Project").appendChild(projEl);  
 
+            //append task to project in DOM.
             Object.values(activeProjects)[i].tasks.forEach(l=> {
                 let li = document.createElement("li");
                 li.classList.add("list-style");
@@ -45,8 +48,32 @@ const genSideBarContent = ()=> {
                 li.innerHTML = l.title;
                 document.getElementById(Object.keys(activeProjects)[i]).appendChild(li);
                 });  
+
+            // remove from DOM if task marked as deleted.
+            // goes through tasks in order to check if deleted
+            //
+            Object.values(activeProjects)[i].tasks.forEach(t => { 
+                // when a task is marked as deleted, delete from DOM.
+                if (t.status === "deleted") {
+                    console.log("task is deleted");
+                    document.getElementById(t.title).remove();
+
+                    // deletes project from DOM if all tasks within marked as deleted.
+                    //https://www.javascripttutorial.net/javascript-every/
+                    // if (t.status.every(()=> {return t.status ==="deleted"})) 
+                    
+                    //     {
+                    //         console.log("project has no tasks");
+
+                    //     }
+                }
+            })                    
+                
         i++;
         } 
-    }
+
+
+
+}
 
 export { genSideBarContent}

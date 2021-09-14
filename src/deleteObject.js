@@ -13,8 +13,6 @@ const deleteObj = (task) => {
                     if (AP.tasks[i].title === checkTask.title) {  
                         ( () => {
                             if (confirm("Are you sure you want to delete this task?")){
-                            
-                                // AP.tasks[i] = undefined;   
                                 //deletes tasks from DOM.
                                 document.getElementById(`task_${tNum}`).remove();
                                 document.getElementById(`${checkTask.title}`).remove();
