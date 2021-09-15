@@ -51,21 +51,14 @@ const genSideBarContent = ()=> {
 
             // remove from DOM if task marked as deleted.
             // goes through tasks in order to check if deleted
-            //
             Object.values(activeProjects)[i].tasks.forEach(t => { 
                 // when a task is marked as deleted, delete from DOM.
                 if (t.status === "deleted") {
                     console.log("task is deleted");
                     document.getElementById(t.title).remove();
 
-                    // deletes project from DOM if all tasks within marked as deleted.
-                    //https://www.javascripttutorial.net/javascript-every/
-                    // if (t.status.every(()=> {return t.status ==="deleted"})) 
-                    
-                    //     {
-                    //         console.log("project has no tasks");
-
-                    //     }
+        
+ 
                 }
             })                    
                 
