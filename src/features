@@ -9,6 +9,7 @@ deleteable todos/projects
     deleting project Object poses issue unless
     project order shifts down to fill spot. 
     much of logic relies on order of tasks. 
+Preventing duplicate project names. 
 
 it may be better to display project content on own 'page' rather than show all tasks in main window.
 ie, multiple pages All Tasks, Project 1, completed, left-to-do, etc. 

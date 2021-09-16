@@ -3,32 +3,26 @@ const checkBox = () => {
     let taskList = document.querySelectorAll(".checkBox");
     for (let i=0; i < taskList.length; i++) {
     
-        // need a way to reliably grab id task1 /task 2 etc. loop?
         let getCheck = taskList[i];
         let setCheck = window[getCheck.id];
+        let main = document.getElementById(getCheck.id);
+        let side = document.getElementById(getCheck.value);
 
-        if (getCheck.checked ===true) {
+        console.log(side);
+
+        if (getCheck.checked === true) {
             setCheck.status = "complete";
+            main.setAttribute("style","text-decoration: line-through");
+            side.setAttribute("style","text-decoration: line-through");
+
         }
 
         else if (getCheck.checked === false ) {
             setCheck.status = "incomplete";
+            main.setAttribute("style","text-decoration: none");
+            side.setAttribute("style","text-decoration: none");
         };
     };
 };
-    // console.log(checkStatus + "test");
-
-    //algorithm 
-    //check all checkboxes for value (checked or unchecked).
-    // grab checkbox value and pass into relevant task object. must toggle.
-    // assign strikethrough class when checked.
-
-
-    // let getdocument.querySelector(".checkBox");
-
-
-
-
-
-
+  
 export {checkBox}
