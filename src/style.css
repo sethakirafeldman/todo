@@ -224,3 +224,23 @@ padding: 1%;
     border: none;
 
 }
+
+
+.triangle-right {
+    float:right;
+    width: 0;
+    height: 0;
+    border-top: .5rem solid transparent;
+    border-left: 1rem solid teal;
+    border-bottom: .5rem solid transparent;
+    position: static;
+  }
+
+  .triangle-down {
+    width: 0;
+    height: 0;
+    border-left: .5rem solid transparent;
+    border-right: .5rem solid transparent;
+    border-top: 1rem solid teal;
+  }
+

@@ -8,8 +8,6 @@ const checkBox = () => {
         let main = document.getElementById(getCheck.id);
         let side = document.getElementById(getCheck.value);
 
-        console.log(side);
-
         if (getCheck.checked === true) {
             setCheck.status = "complete";
             main.setAttribute("style","text-decoration: line-through");

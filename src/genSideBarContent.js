@@ -1,7 +1,3 @@
-// the array needs to only keep unique items + be linked to the task.
-//needs project objects to store corresponding tasks. 
-// which leaves with an object for task + an object for project the task is part of. 
-
 const genSideBarContent = ()=> {
     let i = 0;
     let Project = document.getElementById("Project");
@@ -14,11 +10,17 @@ const genSideBarContent = ()=> {
             if (children[k].classList.contains("hide-bar") )  {
                 children[k].classList.remove("hide-bar");
                 children[k].classList.add("unhide-bar");
+
+                el.srcElement.classList.remove("triangle-right");
+                el.srcElement.classList.add("triangle-down");
+
             }
 
             else {
                 children[k].classList.add("hide-bar");
                 children[k].classList.remove("unhide-bar");
+                el.srcElement.classList.add("triangle-right");
+                el.srcElement.classList.remove("triangle-down");
             }
         }
     };
@@ -38,6 +40,15 @@ const genSideBarContent = ()=> {
             projEl.addEventListener("click", (projEl) => {
                 showTaskList(projEl)});
             document.getElementById("Project").appendChild(projEl);  
+
+            // add triangle chevron
+            let tri = document.createElement("div");
+            tri.classList.add("triangle-right");
+            tri.addEventListener("click", (projEl) => {
+                showTaskList(projEl)});
+            projEl.appendChild(tri);
+
+
 
             //append task to project in DOM.
             Object.values(activeProjects)[i].tasks.forEach(l=> {

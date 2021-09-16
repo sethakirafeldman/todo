@@ -23,10 +23,6 @@ const deleteObj = (task) => {
 
                                 // deletes project from DOM if all tasks within marked as deleted.      
                                 for (let j = 0; j < Object.values(activeProjects).length; j++) {   
-                                    let projNum = j + 1; 
-                                    console.log(tProj);
-                                    console.log(`projNumb is ${projNum}`);       
-                                    
                                     if (Object.values(activeProjects)[j].projectName == tProj) {
                                         let checkDeleted = Object.values(activeProjects)[j].tasks.every(t=>{
                                             return t.status == "deleted"});
