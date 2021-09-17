@@ -12,7 +12,6 @@ const checkBox = () => {
             setCheck.status = "complete";
             main.setAttribute("style","text-decoration: line-through");
             side.setAttribute("style","text-decoration: line-through");
-
         }
 
         else if (getCheck.checked === false ) {

@@ -103,7 +103,7 @@
 
 #cancelSubmit {
 
-    width: fit-content%;
+    width: fit-content;
     font-size: large;
     text-align: center;
     justify-content: center;
@@ -234,13 +234,18 @@ padding: 1%;
     border-left: 1rem solid teal;
     border-bottom: .5rem solid transparent;
     position: static;
+    pointer-events: none;
+
   }
 
   .triangle-down {
+    float: right;
     width: 0;
     height: 0;
     border-left: .5rem solid transparent;
     border-right: .5rem solid transparent;
     border-top: 1rem solid teal;
+    position: static;
+    pointer-events: none;
   }
 

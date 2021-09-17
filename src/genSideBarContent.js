@@ -4,23 +4,33 @@ const genSideBarContent = ()=> {
     
     // toggles display of project tasks on click or project in sidebar.
     const showTaskList = (el) => {
+
+        console.log("this is el:" +el);
         let source = el.srcElement.id;
         let children = document.getElementById(source).childNodes;
-        for (let k = 1; children.length > k; k++) {
+
+        for (let k = 2; children.length > k; k++) {
+            // if tasks are hidden from side bar
             if (children[k].classList.contains("hide-bar") )  {
+                
                 children[k].classList.remove("hide-bar");
                 children[k].classList.add("unhide-bar");
 
-                el.srcElement.classList.remove("triangle-right");
-                el.srcElement.classList.add("triangle-down");
+                children[1].classList.remove("triangle-right");
+                children[1].classList.add("triangle-down");
+
+                
+                // this needs to target child of project rather than chevron.
+                
 
             }
-
+            // if tasks are visible on sidebar
             else {
                 children[k].classList.add("hide-bar");
                 children[k].classList.remove("unhide-bar");
-                el.srcElement.classList.add("triangle-right");
-                el.srcElement.classList.remove("triangle-down");
+
+                children[1].classList.remove("triangle-down");
+                children[1].classList.add("triangle-right");
             }
         }
     };
@@ -44,8 +54,9 @@ const genSideBarContent = ()=> {
             // add triangle chevron
             let tri = document.createElement("div");
             tri.classList.add("triangle-right");
-            tri.addEventListener("click", (projEl) => {
-                showTaskList(projEl)});
+            tri.id = "chevron";
+            // tri.addEventListener("click", (projEl) => {
+            //     showTaskList(projEl)});
             projEl.appendChild(tri);
 
 
@@ -58,7 +69,7 @@ const genSideBarContent = ()=> {
                 li.id = l.title;
                 li.innerHTML = l.title;
                 document.getElementById(Object.keys(activeProjects)[i]).appendChild(li);
-                });  
+            });  
 
             // remove from DOM if task marked as deleted.
             // goes through tasks in order to check if deleted
