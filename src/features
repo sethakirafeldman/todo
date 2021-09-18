@@ -1,15 +1,22 @@
 Features left to add 09/05/2021
 
-strike-through on task status === true, vice-versa
+strike-through on task status === true, vice-
+    done
 styling for sidebar
+    WIP
 dynamic chevrons for projects in side bar
+    done
 local storage to store user data
+    proj and tasks storing as localstorage. done
+    these need to be retrieved in submitData.js and genSideBarContent.js
+    also need to have contents affected by edits in editTasks.js
+
 editable todos/projects 
+    done
 deleteable todos/projects
-    deleting project Object poses issue unless
-    project order shifts down to fill spot. 
-    much of logic relies on order of tasks. 
+    done
 Preventing duplicate project names. 
+    todo
 
 it may be better to display project content on own 'page' rather than show all tasks in main window.
 ie, multiple pages All Tasks, Project 1, completed, left-to-do, etc. 

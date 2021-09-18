@@ -2,6 +2,7 @@ import { toDoFactory } from "./toDoFactory";
 import { checkBox } from "./checkBox.js";
 import { genSideBarContent } from "./genSideBarContent.js";
 import { editTask } from "./editTasks.js";
+import { genPageContent } from "./genPageContent";
 
 let taskNumber = 1;
 let projNumber = 1;
@@ -67,7 +68,9 @@ const submitData = () => {
 
          }             
     )();
-
+   
+    genPageContent(taskEntry);
+    
     const taskTitle = document.createElement("div");
     const taskContent = document.createElement("div");
     const taskDue = document.createElement("div");
