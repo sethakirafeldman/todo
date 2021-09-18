@@ -21,6 +21,9 @@ const submitData = () => {
 
     let taskEntry = window['task_'+ taskNumber] = toDoFactory(taskInp, taskDesc, taskNumber, dateInp, projInp); 
 
+    // local storage
+    localStorage.setItem(taskEntry, JSON.stringify(taskEntry));
+
     //IIFE
     ( () =>  {
          //if no existing project object, create one
@@ -29,6 +32,8 @@ const submitData = () => {
             project.projectName= projInp;
             project.tasks= [];
             project.tasks.push(taskEntry)
+            // local storage. 
+            localStorage.setItem(project.projectName, JSON.stringify(project));
          }
          // if there are projects
          else if (Object.keys(activeProjects.length >= 1)) {
@@ -38,6 +43,8 @@ const submitData = () => {
                   //if matching proj name, pushes task from entry to proj.
                   if (proj.projectName === projInp) {
                      proj.tasks.push(taskEntry);
+
+                     localStorage.setItem(proj.projectName, JSON.stringify(proj));
                   }
                   // if there are projects already, but the new projInp does not match. Create new.
                   else {
@@ -49,6 +56,9 @@ const submitData = () => {
                            project.tasks = [];
                            project.tasks.push(taskEntry);
                            projNumber = Object.keys(activeProjects).length;
+
+                           localStorage.setItem(project.projectName, JSON.stringify(project));
+
                         }
                   }
                })
