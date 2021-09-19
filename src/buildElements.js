@@ -1,5 +1,6 @@
 import { buildMenuButton } from "./buildMenuButton.js";
 import { buildSideBar } from "./buildSideBar.js";
+import { checkLocal} from "./checkLocal.js";
 
 const elFactory = (type, parent, id, text) => {
     const build = () => {
@@ -51,5 +52,9 @@ taskSection.build();
 //adds hamburger menu
 buildMenuButton();
 buildSideBar();
+
+// checklocal.
+
+checkLocal(); 
 
 export {elFactory}

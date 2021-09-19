@@ -19,10 +19,6 @@ const genSideBarContent = ()=> {
                 children[1].classList.remove("triangle-right");
                 children[1].classList.add("triangle-down");
 
-                
-                // this needs to target child of project rather than chevron.
-                
-
             }
             // if tasks are visible on sidebar
             else {
@@ -78,17 +74,11 @@ const genSideBarContent = ()=> {
                 if (t.status === "deleted") {
                     console.log("task is deleted");
                     document.getElementById(t.title).remove();
-
-        
- 
                 }
             })                    
                 
         i++;
         } 
-
-
-
 }
 
 export { genSideBarContent}

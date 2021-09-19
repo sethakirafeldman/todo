@@ -8,7 +8,8 @@ dynamic chevrons for projects in side bar
     done
 local storage to store user data
     proj and tasks storing as localstorage. done
-    these need to be retrieved in submitData.js and genSideBarContent.js
+    deletion needs to remove localstorage data. done.
+    these need to be retrieved in submitData.js and genSideBarContent.js on page load.
     also need to have contents affected by edits in editTasks.js
 
 editable todos/projects 

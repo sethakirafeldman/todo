@@ -1,10 +1,10 @@
-
 const checkBox = () => {
     let taskList = document.querySelectorAll(".checkBox");
     for (let i=0; i < taskList.length; i++) {
     
         let getCheck = taskList[i];
         let setCheck = window[getCheck.id];
+
         let main = document.getElementById(getCheck.id);
         let side = document.getElementById(getCheck.value);
 

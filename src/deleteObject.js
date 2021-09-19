@@ -1,5 +1,3 @@
-// need to figure out better algo. too confusing. 
-
 const deleteObj = (task) => {
     let tNum = window[task.id].entry;
     let tProj = window[task.id].project;
@@ -15,12 +13,15 @@ const deleteObj = (task) => {
                         ( () => {
                             if (confirm("Are you sure you want to delete this task?")){
                                 //deletes tasks from DOM.
-                                document.getElementById(`task_${tNum}`).remove();
+                                let taskDel = `task_${tNum}`;
+                                document.getElementById(taskDel).remove();
                                 document.getElementById(`${checkTask.title}`).remove();
                                 //sets task status to deleted
                                 checkTask.status = "deleted";
                                 document.getElementById("editContainer").remove();
 
+                                // delete from localStorage.
+                                localStorage.removeItem(taskDel);
                                 // deletes project from DOM if all tasks within marked as deleted.      
                                 for (let j = 0; j < Object.values(activeProjects).length; j++) {   
                                     if (Object.values(activeProjects)[j].projectName == tProj) {
@@ -29,6 +30,9 @@ const deleteObj = (task) => {
                                         if (checkDeleted === true) {
                                             console.log("no tasks in project remaining, removing project.")
                                             document.getElementById(Object.keys(activeProjects)[j]).remove();
+                                            // del from localStorage.
+                                            localStorage.removeItem(Object.values(activeProjects)[j].projectName);
+                                            
                                         }
                                     }
                                 }
@@ -41,6 +45,5 @@ const deleteObj = (task) => {
             };
         });
 }
-
 
 export {deleteObj} 
