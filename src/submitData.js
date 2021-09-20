@@ -29,12 +29,14 @@ const submitData = () => {
     ( () =>  {
          //if no existing project object, create one
          if (Object.keys(activeProjects).length === 0) {
+
             let project = activeProjects['project_'+1] = new Object();
             project.projectName= projInp;
             project.tasks= [];
             project.tasks.push(taskEntry)
             // local storage. 
-            localStorage.setItem(project.projectName, JSON.stringify(project));
+            console.log(Object.keys(activeProjects)[0]);
+            localStorage.setItem(Object.keys(activeProjects)[0], JSON.stringify(project));
          }
          // if there are projects
          else if (Object.keys(activeProjects.length >= 1)) {
@@ -45,21 +47,33 @@ const submitData = () => {
                   if (proj.projectName === projInp) {
                      proj.tasks.push(taskEntry);
 
-                     localStorage.setItem(proj.projectName, JSON.stringify(proj));
+                     // checks if project matches existing and adds to local storage.
+                     for (let i = 0; i < Object.keys(activeProjects).length; i++) {
+                        if (activeProjects[Object.keys(activeProjects)[i]].projectName == projInp) {
+
+                           localStorage.setItem(Object.keys(activeProjects)[i], JSON.stringify(proj));
+                        }
+                     }
                   }
                   // if there are projects already, but the new projInp does not match. Create new.
                   else {
                      let checkForExisting = Object.values(activeProjects).some(s => s.projectName === projInp);
                         if (checkForExisting === false) {
                            projNumber++;
-                           let project = activeProjects[`project_ ${projNumber}`] = new Object();
+                           let project = activeProjects[`project_${projNumber}`] = new Object();
                            project.projectName= projInp;
                            project.tasks = [];
                            project.tasks.push(taskEntry);
                            projNumber = Object.keys(activeProjects).length;
 
-                           localStorage.setItem(project.projectName, JSON.stringify(project));
-
+                           // need to grab correct Object.keys iteration.
+                           for (let j = 0; j < Object.keys(activeProjects).length; j++) {
+                              if ( activeProjects[Object.keys(activeProjects)[j]].projectName == projInp ) {
+                                 console.log("one project exists, creating new");
+                                 console.log("this is prject" +Object.keys(activeProjects)[j]);
+                                 localStorage.setItem(Object.keys(activeProjects)[j], JSON.stringify(project));
+                              }
+                           }
                         }
                   }
                })
