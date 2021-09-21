@@ -69,8 +69,7 @@ const submitData = () => {
                            // need to grab correct Object.keys iteration.
                            for (let j = 0; j < Object.keys(activeProjects).length; j++) {
                               if ( activeProjects[Object.keys(activeProjects)[j]].projectName == projInp ) {
-                                 console.log("one project exists, creating new");
-                                 console.log("this is prject" +Object.keys(activeProjects)[j]);
+                     
                                  localStorage.setItem(Object.keys(activeProjects)[j], JSON.stringify(project));
                               }
                            }
