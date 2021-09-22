@@ -17,13 +17,13 @@ const submitData = () => {
     const projInp = document.getElementById("projectInput").value;
     const dateInp = document.getElementById("dateSelect").value;
 
-    // creates unique object with # appended to task_ 
+    // used to create new task obj each time, now overwrites but pushes to projects.
     //(title, description, entry, dueDate, project, notes, status) 
 
     let taskEntry = window['task_'+ taskNumber] = toDoFactory(taskInp, taskDesc, taskNumber, dateInp, projInp); 
 
     // local storage
-    localStorage.setItem(taskEntry, JSON.stringify(taskEntry));
+    localStorage.setItem(`task_${taskNumber}`, JSON.stringify(window[`task_${taskNumber}`]));
 
     //IIFE
     ( () =>  {

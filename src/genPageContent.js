@@ -1,7 +1,7 @@
 import { checkBox } from "./checkBox.js";
 import { editTask } from "./editTasks.js";
 
-
+// passed in from submitData.js and checkLocal.js
 const genPageContent = (taskEntry) => {
 
     let taskNumber = 1;
