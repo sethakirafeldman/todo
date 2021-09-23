@@ -1,3 +1,5 @@
+// this does not work after fixing task incrementer in submitdata.
+
 const deleteObj = (task) => {
     let tNum = window[task.id].entry;
     let tProj = window[task.id].project;

@@ -24,7 +24,10 @@ const submitData = () => {
 
     // local storage
     localStorage.setItem(`task_${taskNumber}`, JSON.stringify(window[`task_${taskNumber}`]));
+      console.log(`storing task as task_${taskNumber}`);
 
+      taskNumber++;
+      
     //IIFE
     ( () =>  {
          //if no existing project object, create one
@@ -40,7 +43,7 @@ const submitData = () => {
          }
          // if there are projects
          else if (Object.keys(activeProjects.length >= 1)) {
-            //iterates through projects checking for matching proj name.
+            //iterate through projects checking for matching proj name.
             Object.values(activeProjects).forEach( 
                (proj) => { 
                   //if matching proj name, pushes task from entry to proj.
