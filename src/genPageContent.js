@@ -2,8 +2,9 @@ import { checkBox } from "./checkBox.js";
 import { editTask } from "./editTasks.js";
 
 // passed in from submitData.js and checkLocal.js
-const genPageContent = (taskEntry) => {
-
+const genPageContent = (taskObjName) => {
+  console.log(taskObjName+"this is task object");
+// this does not properly increment task # in DOM since this function was seperated from submit data. 
     let taskNumber = 1;
     
     const taskSec = document.getElementById("taskSection");
@@ -15,25 +16,25 @@ const genPageContent = (taskEntry) => {
     
     //hides user input section and adds obj to taskSection in DOM.  
     let taskEl = document.createElement("div");
-    let taskId = "task_" + taskNumber++;                                                
+    let taskId = taskObjName;                                                
     taskEl.innerHTML = `<input type ="checkbox" id = ${taskId} 
-      value = ${taskEntry.title} class = "checkBox">`;
+      value = ${window[taskObjName].title} class = "checkBox">`;
     taskEl.addEventListener("click", checkBox);
     taskEl.id = taskId;
     taskEl.classList.add("taskItem");
 
 
     //title info
-    taskTitle.innerText = `${taskEntry.title}`;
+    taskTitle.innerText = `${window[taskObjName].title}`;
     taskTitle.classList.add("taskTitle");
-    taskTitle.addEventListener("click", ()=> { editTask(taskEl) });
+    taskTitle.addEventListener("click", ()=> { editTask(taskObjName) });
 
     //description
-    taskContent.innerText = `${taskEntry.description}`;
+    taskContent.innerText = `${window[taskObjName].description}`;
     taskContent.classList.add("taskContent");
     //project
     //due date
-    taskDue.innerText=`${taskEntry.dueDate}`;
+    taskDue.innerText=`${window[taskObjName].dueDate}`;
     taskDue.classList.add("taskDueDate");
 
     // adds to DOM

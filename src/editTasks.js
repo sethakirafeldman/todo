@@ -28,8 +28,8 @@ const editFactory = (type, parent, id, textType, text) => {
 
 };
 // t is the task object.
-const editTask = (t) => {
-
+const editTask = (taskObjName) => {
+    console.log(taskObjName+"this is taskobjname");
     if (document.getElementById("editContainer") === null) {
 
         // need to add project name and due date editor as well. 
@@ -42,20 +42,20 @@ const editTask = (t) => {
         // task name editor
         const taskLabel = editFactory("label", "editContainer","taskLabel", "innerText", "Task Name: ");
         taskLabel.build();
-        const taskInputEditor = editFactory("input", "editContainer", "taskEdit", "placeholder", window[t.id].title);
+        const taskInputEditor = editFactory("input", "editContainer", "taskEdit", "placeholder", window[taskObjName].title);
         taskInputEditor.build();
 
         // task desc editor
         const descLabel = editFactory("label", "editContainer","descLabel", "innerText", "Task Description: ");
         descLabel.build();
-        const descEdit = editFactory("input", "editContainer", "descEdit", "placeholder", window[t.id].description);
+        const descEdit = editFactory("input", "editContainer", "descEdit", "placeholder", window[taskObjName].description);
         descEdit.build();
 
         // Date editor
-        const dateLabel = editFactory("label", "editContainer","dateLabel", "innerText", `Due Date (Current: ${window[t.id].dueDate})` );
+        const dateLabel = editFactory("label", "editContainer","dateLabel", "innerText", `Due Date (Current: ${window[taskObjName].dueDate})` );
         dateLabel.build();
 
-        const dateSelect = editFactory("input", "editContainer", "dateEdit", "innerText", window[t.id].dueDate);
+        const dateSelect = editFactory("input", "editContainer", "dateEdit", "innerText", window[taskObjName].dueDate);
         dateSelect.build();
 
         let dateSel = document.getElementById("dateEdit");
@@ -66,7 +66,7 @@ const editTask = (t) => {
         editDelete.build();
             //delete function.
             document.getElementById("editDelete").addEventListener("click", () => {
-                deleteObj(t);
+                deleteObj(taskObjName);
              });         
 
         // submit button
@@ -77,11 +77,11 @@ const editTask = (t) => {
                 let taskEditor = document.getElementById("taskEdit");
                 let descEditor = document.getElementById("descEdit");
 
-                window[t.id].title = taskEditor.value;
-                window[t.id].description = descEditor.value;
+                window[taskObjName].title = taskEditor.value;
+                window[taskObjName].description = descEditor.value;
 
-                document.getElementById(t.id).childNodes[1].innerText = taskEditor.value;  
-                document.getElementById(t.id).childNodes[1].innerText = descEditor.value;
+                document.getElementById(taskObjName).childNodes[1].innerText = taskEditor.value;  
+                document.getElementById(taskObjName).childNodes[1].innerText = descEditor.value;
 
                 genSideBarContent();
                 document.getElementById("editContainer").remove();

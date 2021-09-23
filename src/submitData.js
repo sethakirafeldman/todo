@@ -19,8 +19,9 @@ const submitData = () => {
 
     // used to create new task obj each time, now overwrites but pushes to projects.
     //(title, description, entry, dueDate, project, notes, status) 
+    let taskObjName = 'task_'+ taskNumber;
 
-    let taskEntry = window['task_'+ taskNumber] = toDoFactory(taskInp, taskDesc, taskNumber, dateInp, projInp); 
+    let taskEntry = window[taskObjName] = toDoFactory(taskInp, taskDesc, taskNumber, dateInp, projInp); 
 
     // local storage
     localStorage.setItem(`task_${taskNumber}`, JSON.stringify(window[`task_${taskNumber}`]));
@@ -85,7 +86,7 @@ const submitData = () => {
          }             
     )();
    
-   genPageContent(taskEntry);
+   genPageContent(taskObjName);
     
 };
 
