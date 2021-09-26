@@ -11,6 +11,7 @@ const genPageContent = (taskObjName) => {
 
     const taskTitle = document.createElement("div");
     const taskContent = document.createElement("div");
+    
     const taskDue = document.createElement("div");
 
     
@@ -40,8 +41,8 @@ const genPageContent = (taskObjName) => {
     // adds to DOM
     taskSec.append(taskEl); 
     taskEl.append(taskTitle);
-    taskTitle.append(taskContent);
-    taskContent.append(taskDue);
+    taskEl.append(taskContent);
+    taskEl.append(taskDue);
 
     //unhides Add Task Button and deletes inputContainer
     document.getElementById("addTask").classList.remove("hide");

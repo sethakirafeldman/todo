@@ -1,7 +1,7 @@
 // this does not work after fixing task incrementer in submitdata.
 // called in editTasks.js. passes in t which is the created div taskEl from genPageContent
 const deleteObj = (taskObjName) => {
-
+    console.log("this is the taskObjName in delete: "+taskObjName);
     let tNum = window[taskObjName].entry;
     let tProj = window[taskObjName].project;
     let checkTask = window[`task_${tNum}`];

@@ -1,5 +1,6 @@
 import { genSideBarContent } from "./genSideBarContent.js";
 import { deleteObj } from "./deleteObject.js";
+import { submitChange } from "./submitChange.js";
 
 const editFactory = (type, parent, id, textType, text) => {
     const build = () => {
@@ -29,7 +30,6 @@ const editFactory = (type, parent, id, textType, text) => {
 };
 // t is the task object.
 const editTask = (taskObjName) => {
-    console.log(taskObjName+"this is taskobjname");
     if (document.getElementById("editContainer") === null) {
 
         // need to add project name and due date editor as well. 
@@ -72,20 +72,12 @@ const editTask = (taskObjName) => {
         // submit button
         const editSubmit = editFactory("button", "editContainer", "editSubmit", "innerText", "submit");
         editSubmit.build();
+
             // changes task name on submit of change.
-            document.getElementById("editSubmit").addEventListener("click", ()=> {
-                let taskEditor = document.getElementById("taskEdit");
-                let descEditor = document.getElementById("descEdit");
-
-                window[taskObjName].title = taskEditor.value;
-                window[taskObjName].description = descEditor.value;
-
-                document.getElementById(taskObjName).childNodes[1].innerText = taskEditor.value;  
-                document.getElementById(taskObjName).childNodes[1].innerText = descEditor.value;
-
-                genSideBarContent();
-                document.getElementById("editContainer").remove();
+            document.getElementById("editSubmit").addEventListener("click", () => {
+                submitChange(taskObjName); 
                 });
+        
 
         // cancel button        
         const editCancel = editFactory("button", "editContainer","editCancel","innerText", "cancel");
