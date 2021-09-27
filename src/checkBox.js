@@ -6,7 +6,8 @@ const checkBox = () => {
         let setCheck = window[getCheck.id];
 
         let main = document.getElementById(getCheck.id);
-        let side = document.getElementById(getCheck.value);
+        // let side = document.getElementById(getCheck);
+        let side = document.getElementById(setCheck.title);
 
         if (getCheck.checked === true) {
             setCheck.status = "complete";
