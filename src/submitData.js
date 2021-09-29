@@ -23,11 +23,11 @@ const submitData = () => {
 
     let taskEntry = window[taskObjName] = toDoFactory(taskInp, taskDesc, taskNumber, dateInp, projInp); 
 
-    // local storage
-    localStorage.setItem(`task_${taskNumber}`, JSON.stringify(window[`task_${taskNumber}`]));
-      console.log(`storing task as task_${taskNumber}`);
+    // local storage for Task does not need to pass in. passed in through active projects.
+   //  localStorage.setItem(`task_${taskNumber}`, JSON.stringify(window[`task_${taskNumber}`]));
+   //    console.log(`storing task as task_${taskNumber}`);
 
-      taskNumber++;
+   //    taskNumber++;
       
     //IIFE
     ( () =>  {

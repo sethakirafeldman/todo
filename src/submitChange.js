@@ -1,7 +1,7 @@
 import { genSideBarContent } from "./genSideBarContent";
 
 const submitChange = (taskObj) => {
-    localStorage.clear() // temp
+    
     //targets selected DOM task to edit
     const taskObjEl = document.getElementById(taskObj);
     //Additional DOM elements to edit.
@@ -25,11 +25,9 @@ const submitChange = (taskObj) => {
         for (let i=0; i < 3; i++) {
             // checks what vals in editor are blank.
             if (Object.values(tempVals)[i] == "") {
-                console.log(Object.keys(tempVals)[i] +"is blank");
             }
             // checks what vals in editor have value.
             else if (Object.values(tempVals)[i] !== "") {
-                console.log(Object.keys(tempVals)[i]+ "has a value");
                 //changes task Object based on which has value.
                 if (Object.keys(tempVals)[i] == "taskEdit"){
                     window[taskObj].title = Object.values(tempVals)[i];

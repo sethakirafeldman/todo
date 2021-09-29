@@ -18,8 +18,7 @@ const genPageContent = (taskObjName) => {
     //hides user input section and adds obj to taskSection in DOM.  
     let taskEl = document.createElement("div");
     let taskId = taskObjName;                                                
-    taskEl.innerHTML = `<input type ="checkbox" id = ${taskId} 
-      value = ${window[taskObjName].title} class = "checkBox">`;
+    taskEl.innerHTML = `<input type ="checkbox" id = ${taskId} value = ${window[taskObjName].title} class = "checkBox">`;
     taskEl.addEventListener("click", checkBox);
     taskEl.id = taskId;
     taskEl.classList.add("taskItem");
@@ -45,9 +44,13 @@ const genPageContent = (taskObjName) => {
     taskEl.append(taskDue);
 
     //unhides Add Task Button and deletes inputContainer
-    document.getElementById("addTask").classList.remove("hide");
-    document.getElementById("inputContainer").remove();
+    if (document.getElementById("inputContainer") !== null) {
+      document.getElementById("addTask").classList.remove("hide");
+      document.getElementById("inputContainer").remove();
+    } 
+    else {
 
+    }
 
     
 
