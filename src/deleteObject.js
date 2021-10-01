@@ -24,17 +24,25 @@ const deleteObj = (taskObjName) => {
                                 document.getElementById("editContainer").remove();
 
                                 // delete from localStorage.
-                                localStorage.removeItem(taskDel);
+                                // localStorage.removeItem(taskDel);
+                                
+
                                 // deletes project from DOM if all tasks within marked as deleted.      
                                 for (let j = 0; j < Object.values(activeProjects).length; j++) {   
                                     if (Object.values(activeProjects)[j].projectName == tProj) {
+                                        // adds to local storage based on more recent project data.
+                                        // this should remove the project to get new data.
+                                        localStorage.removeItem(Object.keys(activeProjects)[j]);
+                                        // readds updated data (now includes delete). doesn't work. loop issue?
+                                        localStorage.setItem(Object.keys(activeProjects)[j], JSON.stringify(activeProjects[Object.keys(activeProjects)[j]]));
+                                        
                                         let checkDeleted = Object.values(activeProjects)[j].tasks.every(t=>{
                                             return t.status == "deleted"});
                                         if (checkDeleted === true) {
                                             console.log("no tasks in project remaining, removing project.")
                                             document.getElementById(Object.keys(activeProjects)[j]).remove();
                                             // del from localStorage.
-                                            localStorage.removeItem(Object.values(activeProjects)[j].projectName);
+                                            localStorage.removeItem(Object.keys(activeProjects)[j]);
                                             
                                         }
                                     }

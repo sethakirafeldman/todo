@@ -2,7 +2,7 @@ const genSideBarContent = ()=> {
     let i = 0;
     let Project = document.getElementById("Project");
     
-    // toggles display of project tasks on click or project in sidebar.
+    // toggles display of project tasks on click for project in sidebar.
     const showTaskList = (el) => {
 
         console.log("this is el:" +el);
@@ -34,9 +34,7 @@ const genSideBarContent = ()=> {
         if (Project.childNodes.length > 1) {
             Project.innerHTML= "Projects";
         }
-        // creates sidebar content based. this needs to hide or delete tasks marked 
-        //as deleted or empty projects
-
+       
         while (i < Object.values(activeProjects).length) {
             // adds project name to sidebar DOM
             let projEl = document.createElement("div");
@@ -55,8 +53,6 @@ const genSideBarContent = ()=> {
             //     showTaskList(projEl)});
             projEl.appendChild(tri);
 
-
-
             //append task to project in DOM.
             Object.values(activeProjects)[i].tasks.forEach(l=> {
                 let li = document.createElement("li");
@@ -74,9 +70,11 @@ const genSideBarContent = ()=> {
                 if (t.status === "deleted") {
                     console.log("task is deleted");
                     document.getElementById(t.title).remove();
+                 
                 }
-            })                    
-                
+
+    
+            })                            
         i++;
         } 
 }

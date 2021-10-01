@@ -27,7 +27,7 @@ const submitData = () => {
    //  localStorage.setItem(`task_${taskNumber}`, JSON.stringify(window[`task_${taskNumber}`]));
    //    console.log(`storing task as task_${taskNumber}`);
 
-   //    taskNumber++;
+   taskNumber++;
       
     //IIFE
     ( () =>  {
@@ -92,3 +92,4 @@ const submitData = () => {
 
 
 export {submitData} 
+export { taskNumber }

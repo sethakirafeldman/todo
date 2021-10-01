@@ -1,5 +1,6 @@
 import { genPageContent } from "./genPageContent";
 import { genSideBarContent } from "./genSideBarContent";
+import { taskNumber } from "./submitData";
 
 // retrieves activeProjects and tasks from localStorage
 const checkLocal = () => {
@@ -16,11 +17,9 @@ const checkLocal = () => {
                 window[`task_${tNum}`] = localProject.tasks[j];
                 genPageContent(`task_${tNum}`);
                 genSideBarContent();
-                tNum++;
-                // issues with task_1 numbering when mixing localStorage and new entries.
+                taskNumber++;
             }
-            // need to pass in to create page content
-            // genPageContent(parsed);
+
         }   
 
 
