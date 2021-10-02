@@ -5,7 +5,7 @@ import { editTask } from "./editTasks.js";
 const genPageContent = (taskObjName) => {
   console.log(taskObjName+"this is task object");
 // this does not properly increment task # in DOM since this function was seperated from submit data. 
-    let taskNumber = 1;
+    // let taskNumber = 1;
     
     const taskSec = document.getElementById("taskSection");
 

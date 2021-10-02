@@ -49,8 +49,6 @@ const genSideBarContent = ()=> {
             let tri = document.createElement("div");
             tri.classList.add("triangle-right");
             tri.id = "chevron";
-            // tri.addEventListener("click", (projEl) => {
-            //     showTaskList(projEl)});
             projEl.appendChild(tri);
 
             //append task to project in DOM.
@@ -69,9 +67,18 @@ const genSideBarContent = ()=> {
                 // when a task is marked as deleted, delete from DOM.
                 if (t.status === "deleted") {
                     console.log("task is deleted");
-                    document.getElementById(t.title).remove();
-                 
+                    document.getElementById(t.title).remove(); 
+
+                    // checks if all tasks in project are deleted
+                    let checkDeleted = Object.values(activeProjects)[i].tasks.every(task=>{
+                    return task.status == "deleted"});
+                    // deletes project from sidebar if so.
+                    if (checkDeleted === true) {
+                        console.log("no tasks in project remaining, removing project.")
+                        document.getElementById(Object.keys(activeProjects)[i]).remove();
+                    }
                 }
+
 
     
             })                            
