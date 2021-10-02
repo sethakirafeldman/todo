@@ -1,3 +1,5 @@
+import { viewProject } from "./viewProject.js";
+
 const genSideBarContent = ()=> {
     let i = 0;
     let Project = document.getElementById("Project");
@@ -60,6 +62,13 @@ const genSideBarContent = ()=> {
                 li.innerHTML = l.title;
                 document.getElementById(Object.keys(activeProjects)[i]).appendChild(li);
             });  
+
+            // add view project option.
+            let viewProj = document.createElement("button");
+            viewProj.innerText = "View Project"
+            viewProj.classList.add("hide-bar");
+            viewProj.addEventListener("click", viewProject);
+            document.getElementById(Object.keys(activeProjects)[i]).appendChild(viewProj);
 
             // remove from DOM if task marked as deleted.
             // goes through tasks in order to check if deleted
