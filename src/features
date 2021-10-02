@@ -7,17 +7,24 @@ styling for sidebar
 dynamic chevrons for projects in side bar
     done
 local storage to store user data
-    proj and tasks storing as localstorage. done
-    deletion needs to remove localstorage data. partially done.
+    proj and tasks storing as localstorage. 
+        done
+    deletion needs to remove localstorage data. 
+        done.
 
-    these need to be retrieved in submitData.js and genSideBarContent.js on page load.
-    also need to have contents affected by edits in editTasks.js
+    these need to be retrieved in submitData.js and genSideBarContent.js on page load. 
+        done.
+    also need to have contents affected by edits in editTasks.js. 
+        done.
 
 editable todos/projects 
     done
 deleteable todos/projects
     done
 Preventing duplicate project names. 
+    todo
+
+view project in main window
     todo
 
 it may be better to display project content on own 'page' rather than show all tasks in main window.
