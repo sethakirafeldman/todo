@@ -7,7 +7,6 @@ const genSideBarContent = ()=> {
     // toggles display of project tasks on click for project in sidebar.
     const showTaskList = (el) => {
 
-        console.log("this is el:" +el);
         let source = el.srcElement.id;
         let children = document.getElementById(source).childNodes;
 
@@ -67,7 +66,9 @@ const genSideBarContent = ()=> {
             let viewProj = document.createElement("button");
             viewProj.innerText = "View Project"
             viewProj.classList.add("hide-bar");
-            viewProj.addEventListener("click", viewProject);
+            viewProj.id = Object.keys(activeProjects)[i] + "-btn";
+            viewProj.addEventListener("click", ()=> {viewProject(viewProj.parentElement.id)}
+            );
             document.getElementById(Object.keys(activeProjects)[i]).appendChild(viewProj);
 
             // remove from DOM if task marked as deleted.

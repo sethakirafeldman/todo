@@ -21,6 +21,7 @@ editable todos/projects
     done
 deleteable todos/projects
     done
+    
 Preventing duplicate project names. 
     todo
 
