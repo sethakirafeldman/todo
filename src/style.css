@@ -167,6 +167,7 @@ padding: 1%;
     font-size: large;
     height: fit-content;
     width: 80%;
+    padding: 2%;
 }
 
 .checkBox {
@@ -188,6 +189,7 @@ padding: 1%;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: large;
     flex-wrap: wrap;
+    padding:2%;
     
 }
 
@@ -222,6 +224,7 @@ padding: 1%;
     font-weight: normal;
     padding:1%;
     border: none;
+    list-style-type: none;
 
 }
 
