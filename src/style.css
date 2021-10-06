@@ -1,3 +1,5 @@
+/* This is the main css */
+
 #main {
     display: flex;
     position: relative;
@@ -43,52 +45,14 @@
     text-align: center;
     justify-content: center;
 } 
-
-#inputContainer{
+/* This is for the add task input window */
+#inputContainer {
     position: relative;
     margin: auto;
     font-size: larger;
     text-align: center;
     width: 60%;
     left: 1rem;
-}
-
-#editContainer {
-    display: flex;
-    flex-direction: column;
-    font-size: larger;
-    padding: 2%;
-    border: none;
-    width: 50%;
-    position: relative;
-    margin: auto;
-}
-
-#descEdit, #taskEdit, #dateEdit {
-    font-size: larger;
-
-} 
-
-#editSubmit {
-    width: auto;
-    background-color: teal;
-    color:whitesmoke;
-    width: fit-content;
-    text-align: center;
-    margin: auto;
-    padding:2%;
-
-}
-
-#editCancel {
-
-    width: auto;
-    background-color: red;
-    color:whitesmoke;
-    width: fit-content;
-    text-align: center;
-    margin: auto;
-    padding:2%;
 }
 
 #submitBtn {
@@ -137,22 +101,44 @@ padding: 1%;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-#hamburgerMenu {
-    padding:2%;
+/* This is for the task editor */
+#editContainer {
+    display: flex;
+    flex-direction: column;
+    font-size: larger;
+    padding: 2%;
+    border: none;
+    width: 50%;
+    position: relative;
+    margin: auto;
+}
+
+#descEdit, #taskEdit, #dateEdit {
+    font-size: larger;
+} 
+
+#editSubmit {
+    width: auto;
+    background-color: teal;
+    color:whitesmoke;
     width: fit-content;
-    margin: left;
-
+    text-align: center;
+    margin: auto;
+    padding:2%;
 }
 
-.ham-bar {
-    display: block;
-    width: 25px;
-    height: 3px;
-    background-color: black;
-    margin: 5px auto;
+#editCancel {
 
+    width: auto;
+    background-color: red;
+    color:whitesmoke;
+    width: fit-content;
+    text-align: center;
+    margin: auto;
+    padding:2%;
 }
 
+/* task/project display */
 #taskSection {
     display: flex;
     flex-direction: column;
@@ -189,9 +175,27 @@ padding: 1%;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: large;
     flex-wrap: wrap;
-    padding:2%;
-    
+    padding:2%;    
 }
+
+/* sidebar */
+
+#hamburgerMenu {
+    padding:2%;
+    width: fit-content;
+    margin: left;
+
+}
+
+.ham-bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: black;
+    margin: 5px auto;
+
+}
+
 
 .hide {
     visibility: hidden;
@@ -228,7 +232,6 @@ padding: 1%;
 
 }
 
-
 .triangle-right {
     float:right;
     width: 0;
@@ -251,4 +254,10 @@ padding: 1%;
     position: static;
     pointer-events: none;
   }
-
+  
+/* project viewer section */
+.viewProject {
+    font-weight: bold;
+    list-style: none;
+    border-style: solid;
+}
