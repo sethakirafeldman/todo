@@ -9,16 +9,15 @@ const viewProject = (projName) => {
     //may want to use elFactory from buildElements.js
     // render project title
     let title = document.createElement("div");
-    title.id = `${projName}`;
-    title.style.fontWeight = "bold";
+    title.id = `view_${projName}`;
+    title.classList.add("viewProject");
     title.innerHTML = actProj.projectName;
     taskSec.appendChild(title);
-// weird chevron bug affecting viewProject area.
 
     //render project tasks (loop)
     for (let i = 0; i < actProj.tasks.length; i++ ){
         let li = document.createElement("li");
-        li.id = `viewTask_${actProj.tasks[i].title}`
+        li.id = `viewTask_${actProj.tasks[i].entry}`
         li.style.fontWeight= "bold";
         li.innerHTML = actProj.tasks[i].title;
         title.appendChild(li);
