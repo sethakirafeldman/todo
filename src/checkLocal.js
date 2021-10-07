@@ -16,8 +16,8 @@ const checkLocal = () => {
         
             for (let j = 0; j < localProject.tasks.length; j++) {
                 if (localProject.tasks[j].status !== "deleted") {
-                    window[`task_${tNum}`] = localProject.tasks[j];
-                    genPageContent(`task_${tNum}`);
+                    window[`task_${taskNumber}`] = localProject.tasks[j];
+                    genPageContent(`task_${taskNumber}`);
                     genSideBarContent();
                     taskNumber++;
                 }
