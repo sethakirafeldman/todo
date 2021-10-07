@@ -1,4 +1,4 @@
-const toDoFactory = (title, description, entry, dueDate, project, notes, status) => {
+const toDoFactory = (title, description, entry, dueDate, project, priority, status) => {
 
         return {
             title: title,
@@ -6,7 +6,7 @@ const toDoFactory = (title, description, entry, dueDate, project, notes, status)
             entry: entry,
             dueDate: dueDate,
             project: project,
-            notes: notes,
+            priority: priority,
             status: status
     };
 };

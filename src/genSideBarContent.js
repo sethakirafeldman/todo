@@ -66,6 +66,7 @@ const genSideBarContent = ()=> {
             let viewProj = document.createElement("button");
             viewProj.innerText = "View Project"
             viewProj.classList.add("hide-bar");
+            viewProj.classList.add("smallBtn");
             viewProj.id = Object.keys(activeProjects)[i] + "-btn";
             viewProj.addEventListener("click", ()=> {viewProject(viewProj.parentElement.id)}
             );

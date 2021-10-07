@@ -1,3 +1,5 @@
+import { checkLocal } from "./checkLocal.js";
+
 // called in genSideBarContent
 const viewProject = (projName) => {
     // remove current elements from dom
@@ -37,9 +39,16 @@ const viewProject = (projName) => {
                     li2.innerHTML = `${Object.values(actProj.tasks[i])[j]}`;
                     li.appendChild(li2);
                 }
-            };
+            };        
     };
-    
+    const clearView = document.createElement("button");
+    clearView.innerText = "Return to Tasks";
+    clearView.classList.add("smallBtn");
+    // works for now. better to call real function.
+    clearView.addEventListener("click", () => { 
+        taskSec.childNodes[0].remove();
+        checkLocal() });
+    taskSec.appendChild(clearView);
 }    
    
 

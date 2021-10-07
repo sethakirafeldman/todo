@@ -117,7 +117,7 @@ padding: 1%;
     font-size: larger;
 } 
 
-#editSubmit {
+.smallBtn {
     width: auto;
     background-color: teal;
     color:whitesmoke;
@@ -202,7 +202,7 @@ padding: 1%;
 }
 
 .hide-bar {
-    transform: translateX(-200%);
+    transform: translateX(-400%);
     position: absolute;
     transition: transform .5s;
 }
@@ -254,10 +254,12 @@ padding: 1%;
     position: static;
     pointer-events: none;
   }
-  
+
 /* project viewer section */
 .viewProject {
     font-weight: bold;
     list-style: none;
     border-style: solid;
+    padding:2%;
+    margin: auto;
 }

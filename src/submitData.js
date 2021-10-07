@@ -21,7 +21,7 @@ const submitData = () => {
     //(title, description, entry, dueDate, project, notes, status) 
     let taskObjName = 'task_'+ taskNumber;
 
-    let taskEntry = window[taskObjName] = toDoFactory(taskInp, taskDesc, taskNumber, dateInp, projInp); 
+    let taskEntry = window[taskObjName] = toDoFactory(taskInp, taskDesc, taskNumber, dateInp, projInp, "neutral", "incomplete"); 
 
     // local storage for Task does not need to pass in. passed in through active projects.
    //  localStorage.setItem(`task_${taskNumber}`, JSON.stringify(window[`task_${taskNumber}`]));
@@ -70,8 +70,9 @@ const submitData = () => {
                            project.tasks.push(taskEntry);
                            projNumber = Object.keys(activeProjects).length;
 
-                           // need to grab correct Object.keys iteration.
+                           //loosp through each project entry
                            for (let j = 0; j < Object.keys(activeProjects).length; j++) {
+                              //adds project to local storage when proj name is matched to input
                               if ( activeProjects[Object.keys(activeProjects)[j]].projectName == projInp ) {
                      
                                  localStorage.setItem(Object.keys(activeProjects)[j], JSON.stringify(project));
