@@ -1,5 +1,8 @@
 Features left to add 09/05/2021
 
+bug with localstorage not storing changes made in editor depiste those changes pushing to obj
+    to do.
+
 strike-through on task status === true, vice-
     done
 styling for sidebar

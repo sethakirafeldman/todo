@@ -1,4 +1,5 @@
 import { genSideBarContent } from "./genSideBarContent";
+import { taskNumber } from "./submitData";
 
 const submitChange = (taskObj) => {
     
@@ -15,7 +16,6 @@ const submitChange = (taskObj) => {
         // stores values from editor in object.
         let tempArr = [taskEditBox.value, descEditBox.value, dateEditBox.value];
          
-        console.log(tempArr+ "values??!");
         let tempVals = {
             taskEdit: taskEditBox.value, 
             descEdit: descEditBox.value,
@@ -38,6 +38,8 @@ const submitChange = (taskObj) => {
                 else if (Object.keys(tempVals)[i] == "dateEdit") {
                     window[taskObj].dueDate = Object.values(tempVals)[i];
                 }
+                // trying to store newly changed values in task obj.
+                // localStorage.setItem(window["task_1"], JSON.stringify(taskObj));
             }
         }      
     }
