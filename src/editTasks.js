@@ -77,6 +77,7 @@ const editTask = (taskObjName) => {
             document.getElementById("editSubmit").addEventListener("click", () => {
                 submitChange(taskObjName); 
                 });
+            document.getElementById("editSubmit").classList.add("smallBtn");   
         
 
         // cancel button        
