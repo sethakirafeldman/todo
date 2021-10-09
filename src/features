@@ -1,7 +1,7 @@
 Features left to add 09/05/2021
 
 bug with localstorage not storing changes made in editor depiste those changes pushing to obj
-    to do.
+    done
 
 strike-through on task status === true, vice-
     done
@@ -26,7 +26,12 @@ deleteable todos/projects
     done
     
 Preventing duplicate project names. 
-    todo
+
+    prevent duplicate in addtask 
+        todo
+    prevent duplicate in submitchange
+        todo
+    
 
 view project in main window
     todo

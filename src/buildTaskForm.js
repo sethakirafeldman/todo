@@ -10,6 +10,9 @@ const buildTaskForm = () => {
     // hide Add Task button
     document.getElementById("addTask").classList.add("hide");
     
+    // hide added tasks
+    document.getElementById("taskSection").classList.add("hide");
+
     // create inputContainer
     let inputContainer = document.createElement("div");
     inputContainer.id = "inputContainer";
@@ -88,6 +91,7 @@ const buildTaskForm = () => {
     submitCancel.addEventListener("click", ()=> {
         document.getElementById("addTask").classList.remove("hide");
         document.getElementById("inputContainer").remove();
+        document.getElementById("taskSection").classList.remove("hide");
     });
     inputContainer.appendChild(submitCancel);
 

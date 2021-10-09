@@ -6,6 +6,7 @@ const viewProject = (projName) => {
     let taskSec = document.getElementById("taskSection");
     let actProj = activeProjects[projName];
     taskSec.innerHTML = "";
+    document.getElementById("addTask").classList.add("hide");
     
     // render project details
     //may want to use elFactory from buildElements.js
@@ -44,9 +45,12 @@ const viewProject = (projName) => {
     const clearView = document.createElement("button");
     clearView.innerText = "Return to Tasks";
     clearView.classList.add("smallBtn");
+    clearView.id = "taskReturnBtn";
     // works for now. better to call real function.
     clearView.addEventListener("click", () => { 
         taskSec.childNodes[0].remove();
+        document.getElementById("addTask").classList.remove("hide");
+        clearView.remove();
         checkLocal() });
     taskSec.appendChild(clearView);
 }    

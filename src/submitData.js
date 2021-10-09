@@ -1,7 +1,5 @@
 import { toDoFactory } from "./toDoFactory";
-// import { checkBox } from "./checkBox.js";
 import { genSideBarContent } from "./genSideBarContent.js";
-// import { editTask } from "./editTasks.js";
 import { genPageContent } from "./genPageContent";
 
 let taskNumber = 1;
@@ -9,7 +7,7 @@ let projNumber = 1;
 
 const submitData = () => {
 
-    const taskSec = document.getElementById("taskSection");
+   //  const taskSec = document.getElementById("taskSection");
 
     // grab user input.
     const taskInp = document.getElementById("taskInput").value;
@@ -22,12 +20,8 @@ const submitData = () => {
     let taskObjName = 'task_'+ taskNumber;
 
     let taskEntry = window[taskObjName] = toDoFactory(taskInp, taskDesc, taskNumber, dateInp, projInp, "neutral", "incomplete"); 
-
-    // local storage for Task does not need to pass in. passed in through active projects.
-   //  localStorage.setItem(`task_${taskNumber}`, JSON.stringify(window[`task_${taskNumber}`]));
-   //    console.log(`storing task as task_${taskNumber}`);
-
-   taskNumber++;
+   
+    taskNumber++;
       
     //IIFE
     ( () =>  {
@@ -88,7 +82,7 @@ const submitData = () => {
     )();
    
    genPageContent(taskObjName);
-    
+   document.getElementById("taskSection").classList.remove("hide"); 
 };
 
 

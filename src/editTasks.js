@@ -1,4 +1,4 @@
-import { genSideBarContent } from "./genSideBarContent.js";
+// import { genSideBarContent } from "./genSideBarContent.js";
 import { deleteObj } from "./deleteObject.js";
 import { submitChange } from "./submitChange.js";
 
@@ -26,11 +26,14 @@ const editFactory = (type, parent, id, textType, text) => {
         textType,
         build
     }
-
 };
-// t is the task object.
+
 const editTask = (taskObjName) => {
     if (document.getElementById("editContainer") === null) {
+
+        // hide task section and add task button
+        document.getElementById("taskSection").classList.add("hide");
+        document.getElementById("addTask").classList.add("hide");
 
         // need to add project name and due date editor as well. 
 
@@ -78,13 +81,14 @@ const editTask = (taskObjName) => {
                 submitChange(taskObjName); 
                 });
             document.getElementById("editSubmit").classList.add("smallBtn");   
-        
 
         // cancel button        
         const editCancel = editFactory("button", "editContainer","editCancel","innerText", "cancel");
         editCancel.build();
             document.getElementById("editCancel").addEventListener("click", () => { 
                 document.getElementById("editContainer").remove();
+                document.getElementById("taskSection").classList.remove("hide");
+                document.getElementById("addTask").classList.remove("hide");
             });
     }
 
